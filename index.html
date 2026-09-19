@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evelyn Janaína Ferreira Leite | Portfólio UGC</title>
-<meta name="description" content="Portfólio de UGC de Evelyn Janaína Ferreira Leite. Conteúdo autêntico para marcas de beleza, skincare, moda, fitness e tech.">
+<meta name="description" content="Portfólio de UGC de Evelyn Janaína Ferreira Leite. Conteúdo autêntico para marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Parisienne&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -950,7 +950,7 @@
       <div class="hero-texto">
         <span class="hero-eyebrow">Portfólio UGC</span>
         <h1 class="hero-name">Evelyn Janaína<br>Ferreira Leite</h1>
-        <p class="hero-tagline">Eu compro, testo e indico. Crio conteúdo autêntico de UGC para marcas de beleza, skincare, moda, fitness e tech que querem se conectar de verdade com as pessoas.</p>
+        <p class="hero-tagline">Eu compro, testo e indico. Crio conteúdo autêntico de UGC para marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria que querem se conectar de verdade com as pessoas.</p>
         <div class="hero-actions">
           <a href="#contato" class="btn btn-primary">Falar comigo</a>
           <a href="#trabalhos" class="btn btn-outline">Ver os trabalhos</a>
@@ -981,7 +981,7 @@
         <span class="eyebrow">Sobre mim</span>
         <h2 class="section-title">Prazer, eu sou a Evelyn</h2>
         <p>Sou criadora de conteúdo UGC em Sertãozinho e vivo testando produto, contando resultado e mostrando o dia a dia real de quem usa. Gosto de transformar briefing em vídeo que parece conversa entre amigas, não propaganda.</p>
-        <p>Atendo marcas de beleza, skincare, moda, fitness e tech, sempre buscando um conteúdo que converse com quem está do outro lado da tela e que ajude a sua marca a vender mais.</p>
+        <p>Atendo marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria e artesanato, sempre buscando um conteúdo que converse com quem está do outro lado da tela e que ajude a sua marca a vender mais.</p>
         <ul class="promessas">
           <li>
             <span class="icone" style="background: var(--magenta);" aria-hidden="true">✓</span>
@@ -1194,10 +1194,10 @@
   ];
   // Os valores acima são placeholders. Troque "00" pelos seus números reais assim que tiver.
 
-  // Marcas da faixa da capa (placeholder: Marca 01 a Marca 12)
+  // Marcas da faixa da capa (marcas reais retiradas do portfólio atual)
   var brands = [
-    "Marca 01", "Marca 02", "Marca 03", "Marca 04", "Marca 05", "Marca 06",
-    "Marca 07", "Marca 08", "Marca 09", "Marca 10", "Marca 11", "Marca 12"
+    "Meccolour", "No1ne", "Grudado", "Army in Luv", "Lavitan", "Black",
+    "Pool", "Saint Germain", "Bulluniformes Personalizados", "Jiditech", "Nozne Store", "Tendência Brasil"
   ];
 
   // Conteúdos de destaque (3 vídeos verticais 9:16)
@@ -1207,53 +1207,85 @@
       videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI/",
       numero: "+000K",
       rotulo: "views no reels",
-      titulo: "Rotina de skincare do dia",
-      contexto: "Vídeo mostrando o produto em uso real, do jeito que eu mesma uso em casa."
+      titulo: "Storytelling com Suplemento",
+      contexto: "Um relato pessoal de autocuidado conectado ao produto, no meu jeito de contar."
     },
     {
       videoUrl: "https://www.tiktok.com/@evelynleiteee/video/SEU_LINK_AQUI",
       numero: "+000K",
       rotulo: "visualizações",
-      titulo: "Unboxing e primeira impressão",
-      contexto: "Reação espontânea ao abrir o produto, pensado para gerar conexão."
+      titulo: "Transformação com Coloração",
+      contexto: "Depoimento real mostrando a transformação depois da coloração."
     },
     {
       videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI2/",
       numero: "+000K",
       rotulo: "views no reels",
-      titulo: "Antes e depois de uso",
-      contexto: "Conteúdo de resultado, formato que costuma gerar mais comentários."
+      titulo: "Review Relógio Saint Germain",
+      contexto: "Análise sincera do relógio, do design ao uso no dia a dia."
     }
   ];
 
   // Trabalhos por nicho (filtro sem recarregar a página)
+  // Conteúdos retirados do portfólio atual, organizados pelos mesmos nichos que você já usa
   var works = [
-    { niche: "beleza", titulo: "Marca 01", desc: "Vídeo de rotina de maquiagem do dia a dia." },
-    { niche: "beleza", titulo: "Marca 02", desc: "Resenha sincera de produto de cabelo." },
-    { niche: "skincare", titulo: "Marca 03", desc: "Rotina noturna de skincare passo a passo." },
-    { niche: "skincare", titulo: "Marca 04", desc: "Antes e depois de tratamento facial." },
-    { niche: "moda", titulo: "Marca 05", desc: "Look do dia com peças da coleção nova." },
-    { niche: "moda", titulo: "Marca 06", desc: "Prova de roupa e combinações de look." },
-    { niche: "fitness", titulo: "Marca 07", desc: "Treino usando linha de suplementos." },
-    { niche: "fitness", titulo: "Marca 08", desc: "Rotina de roupa fitness no dia de treino." },
-    { niche: "tech", titulo: "Marca 09", desc: "Unboxing e primeiras impressões de gadget." },
-    { niche: "tech", titulo: "Marca 10", desc: "Uso do app no dia a dia, de forma natural." }
+    { niche: "saude", titulo: "Storytelling com Suplemento", desc: "Um relato pessoal conectando a rotina de autocuidado ao produto." },
+    { niche: "saude", titulo: "Creatina em Goma na Rotina", desc: "Como a creatina em goma entra de forma prática no dia a dia." },
+    { niche: "saude", titulo: "Composto Vitamínico e Autocuidado", desc: "Uso do composto vitamínico dentro de uma rotina de autocuidado." },
+    { niche: "saude", titulo: "Depoimento sobre Pré-Treino", desc: "Relato sincero da experiência usando o pré-treino." },
+
+    { niche: "moda", titulo: "Experiência com Camiseta", desc: "Relato de experiência real vestindo a camiseta no dia a dia." },
+    { niche: "moda", titulo: "Short Saia de Várias Formas", desc: "Diferentes formas de usar a mesma peça em looks distintos." },
+    { niche: "moda", titulo: "Rotina com Pijama", desc: "Pijama inserido em uma rotina noturna contada em vídeo." },
+    { niche: "moda", titulo: "Review Relógio Saint Germain", desc: "Análise sincera do relógio, do design ao uso no dia a dia." },
+
+    { niche: "promocoes", titulo: "Achadinhos para Casa", desc: "Divulgação de um perfil de achadinhos voltado para casa." },
+    { niche: "promocoes", titulo: "Achadinhos KBeauty", desc: "Divulgação de um perfil especializado em achadinhos de KBeauty." },
+    { niche: "promocoes", titulo: "Achadinhos de Artesanato", desc: "Perfil de achadinhos voltado para quem ama artesanato." },
+    { niche: "promocoes", titulo: "Achadinhos de Moda", desc: "Divulgação de um perfil de achadinhos focado em moda." },
+
+    { niche: "beleza", titulo: "Transformação com Coloração", desc: "Depoimento mostrando a transformação depois da coloração." },
+    { niche: "beleza", titulo: "Tratamento para Cabelos Marsala", desc: "Aplicação do tratamento e o resultado no cabelo tom marsala." },
+    { niche: "beleza", titulo: "Sérum Yoomi", desc: "Apresentação do sérum e da sensação de uso na pele." },
+
+    { niche: "tech", titulo: "Unboxing Detalhado de Câmera", desc: "Abertura completa da câmera, item por item da caixa." },
+    { niche: "tech", titulo: "Fone: Problema Vs Solução", desc: "Um problema comum resolvido com o fone em uma cena só." },
+    { niche: "tech", titulo: "Iluminação: Problema Vs Solução", desc: "Comparação mostrando o problema de luz e a solução com o produto." },
+    { niche: "tech", titulo: "Liquidificador Portátil em Uso", desc: "Rotina real usando o liquidificador portátil no dia a dia." },
+
+    { niche: "tiktokshop", titulo: "Estilo Pov Camiseta", desc: "Vídeo em formato POV mostrando a camiseta no dia a dia." },
+    { niche: "tiktokshop", titulo: "Unboxing Hidratante", desc: "Abertura do hidratante com a primeira reação ao produto." },
+    { niche: "tiktokshop", titulo: "Trend Camiseta", desc: "Camiseta aplicada em um formato de trend que viraliza no TikTok." },
+    { niche: "tiktokshop", titulo: "Creme de Tratamento: Aplicação e Resultado", desc: "Aplicação do creme registrada lado a lado com o resultado." },
+    { niche: "tiktokshop", titulo: "Ventilador de Mão: Demonstração", desc: "Apresentação das funções do ventilador portátil em uso real." },
+    { niche: "tiktokshop", titulo: "Modelador de Cachos: Antes e Depois", desc: "Cabelo antes e depois do uso do modelador, em vídeo único." },
+
+    { niche: "papelaria", titulo: "Unboxing Máquina de Bottons", desc: "Abertura da máquina mostrando cada peça e o que vem no kit." },
+    { niche: "papelaria", titulo: "Unboxing Encadernadora", desc: "Primeira olhada na encadernadora, testando as funções na prática." },
+    { niche: "papelaria", titulo: "Produção de Bottons na Prática", desc: "Passo a passo de como os bottons são feitos, do zero até o produto pronto." },
+    { niche: "papelaria", titulo: "Chaveiros com Plastificadora", desc: "Demonstração da plastificadora sendo usada para criar chaveiros." },
+    { niche: "papelaria", titulo: "Unboxing Álbum de Adesivos", desc: "Abertura do álbum mostrando o material e o acabamento das folhas." },
+    { niche: "papelaria", titulo: "Chaveiro de Pérolas", desc: "Montagem de um chaveiro de pérolas, do material à peça finalizada." }
   ];
   var nicheLabels = {
     todos: "Todos",
-    beleza: "Beleza",
-    skincare: "Skincare",
+    saude: "Saúde e Bem-Estar",
     moda: "Moda",
-    fitness: "Fitness",
-    tech: "Tech"
+    promocoes: "Grupo de Promoções",
+    beleza: "Beleza",
+    tech: "Tech",
+    tiktokshop: "Tiktok Shop",
+    papelaria: "Papelaria e Artesanato"
   };
   // Uma cor da paleta por nicho, para organizar visualmente a galeria
   var nicheColors = {
-    beleza: "var(--rosa)",
-    skincare: "var(--pessego)",
-    moda: "var(--lavanda)",
-    fitness: "var(--magenta)",
-    tech: "var(--azul)"
+    saude: "var(--magenta)",
+    moda: "var(--azul)",
+    promocoes: "var(--rosa)",
+    beleza: "var(--lavanda)",
+    tech: "var(--azul)",
+    tiktokshop: "var(--magenta)",
+    papelaria: "var(--rosa)"
   };
 
   // Como eu te ajudo (6 serviços)
@@ -1278,9 +1310,9 @@
 
   // Resultados de campanha (3)
   var campaignResults = [
-    { marca: "Marca 01", resultado: "00%", desc: "Aumento em engajamento após a publicação do conteúdo.", cor: "var(--magenta)" },
-    { marca: "Marca 02", resultado: "00%", desc: "Aumento em conversão nos anúncios usando o vídeo UGC.", cor: "var(--azul)" },
-    { marca: "Marca 03", resultado: "00%", desc: "Redução no custo por resultado ao trocar a criativo do anúncio.", cor: "var(--rosa)" }
+    { marca: "Lavitan", resultado: "00%", desc: "Aumento em engajamento após a publicação do conteúdo.", cor: "var(--magenta)" },
+    { marca: "Meccolour", resultado: "00%", desc: "Aumento em conversão nos anúncios usando o vídeo UGC.", cor: "var(--azul)" },
+    { marca: "Saint Germain", resultado: "00%", desc: "Redução no custo por resultado ao trocar a criativo do anúncio.", cor: "var(--rosa)" }
   ];
 
   // Depoimentos (4)
