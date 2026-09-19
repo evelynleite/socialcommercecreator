@@ -313,31 +313,13 @@
     position: relative;
   }
   .hero-photo {
+    width: 100%;
     aspect-ratio: 4 / 5;
     border-radius: var(--raio);
-    background: linear-gradient(150deg, var(--pessego) 0%, var(--rosa) 100%);
     box-shadow: var(--sombra);
-    display: flex;
-    align-items: flex-end;
-    padding: 22px;
+    object-fit: cover;
+    object-position: top center;
     position: relative;
-    overflow: hidden;
-  }
-  .hero-photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 60%);
-  }
-  .media-caption {
-    position: relative;
-    font-family: var(--fonte-corpo);
-    font-size: 0.8rem;
-    color: #fff;
-    background: rgba(74, 36, 54, 0.35);
-    padding: 8px 14px;
-    border-radius: 999px;
-    backdrop-filter: blur(4px);
   }
   .hero-photo-deco {
     position: absolute;
@@ -408,13 +390,12 @@
     align-items: center;
   }
   .sobre-photo {
+    width: 100%;
     aspect-ratio: 4 / 5;
     border-radius: var(--raio);
-    background: linear-gradient(160deg, var(--lavanda), var(--azul));
     box-shadow: var(--sombra-suave);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
+    object-fit: cover;
+    object-position: top center;
   }
   .sobre-texto p {
     font-family: var(--fonte-serifa);
@@ -480,14 +461,23 @@
   .feature-cover {
     position: relative;
     aspect-ratio: 9 / 16;
-    background: linear-gradient(160deg, var(--rosa), var(--magenta));
+    background: var(--cinza);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
-  .feature-cover .media-caption {
+  .feature-cover img {
     position: absolute;
-    bottom: 14px; left: 14px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .feature-cover .play-btn {
+    position: relative;
+    z-index: 1;
   }
   .play-btn {
     width: 62px; height: 62px;
@@ -558,10 +548,15 @@
   .trabalho-card.escondido { display: none; }
   .trabalho-capa {
     aspect-ratio: 4 / 5;
-    background: linear-gradient(150deg, var(--cinza), var(--pessego));
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
+    background: var(--cinza);
+    overflow: hidden;
+  }
+  .trabalho-capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
   }
   .trabalho-body { padding: 18px 20px 22px; }
   .trabalho-niche {
@@ -958,10 +953,8 @@
         <div class="hero-stats" id="heroStats"></div>
       </div>
       <div class="hero-photo-wrap">
-        <!-- Para trocar pela foto real: substitua a div .hero-photo por uma tag <img src="sua-foto.jpg" alt="Evelyn Leite, UGC creator"> mantendo a classe hero-photo -->
-        <div class="hero-photo" role="img" aria-label="Foto de Evelyn Leite, formato 4 por 5">
-          <span class="media-caption">foto da creator 4:5</span>
-        </div>
+        <!-- Foto real da Evelyn. Para trocar, substitua o arquivo fotos/hero.jpg mantendo o mesmo nome -->
+        <img class="hero-photo" src="fotos/hero.jpg" alt="Evelyn Leite, UGC creator">
         <span class="hero-photo-deco" aria-hidden="true">✦</span>
       </div>
     </div>
@@ -973,10 +966,8 @@
   <!-- ===================== 2. SOBRE MIM ===================== -->
   <section id="sobre" class="sobre">
     <div class="container sobre-grid">
-      <div class="sobre-photo reveal" role="img" aria-label="Foto de Evelyn Leite, formato 4 por 5">
-        <!-- Para trocar pela foto real: substitua esta div por <img src="sua-foto-sobre.jpg" alt="Evelyn Leite sorrindo"> mantendo a classe sobre-photo -->
-        <span class="media-caption">foto da creator 4:5</span>
-      </div>
+      <!-- Foto real da Evelyn. Para trocar, substitua o arquivo fotos/sobre.jpg mantendo o mesmo nome -->
+      <img class="sobre-photo reveal" src="fotos/sobre.jpg" alt="Evelyn Leite sorrindo">
       <div class="sobre-texto reveal">
         <span class="eyebrow">Sobre mim</span>
         <h2 class="section-title">Prazer, eu sou a Evelyn</h2>
@@ -1208,64 +1199,67 @@
       numero: "+000K",
       rotulo: "views no reels",
       titulo: "Storytelling com Suplemento",
-      contexto: "Um relato pessoal de autocuidado conectado ao produto, no meu jeito de contar."
+      contexto: "Um relato pessoal de autocuidado conectado ao produto, no meu jeito de contar.",
+      foto: "fotos/saude-1.jpg"
     },
     {
       videoUrl: "https://www.tiktok.com/@evelynleiteee/video/SEU_LINK_AQUI",
       numero: "+000K",
       rotulo: "visualizações",
       titulo: "Transformação com Coloração",
-      contexto: "Depoimento real mostrando a transformação depois da coloração."
+      contexto: "Depoimento real mostrando a transformação depois da coloração.",
+      foto: "fotos/beleza-1.jpg"
     },
     {
       videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI2/",
       numero: "+000K",
       rotulo: "views no reels",
       titulo: "Review Relógio Saint Germain",
-      contexto: "Análise sincera do relógio, do design ao uso no dia a dia."
+      contexto: "Análise sincera do relógio, do design ao uso no dia a dia.",
+      foto: "fotos/moda-4.jpg"
     }
   ];
 
   // Trabalhos por nicho (filtro sem recarregar a página)
   // Conteúdos retirados do portfólio atual, organizados pelos mesmos nichos que você já usa
   var works = [
-    { niche: "saude", titulo: "Storytelling com Suplemento", desc: "Um relato pessoal conectando a rotina de autocuidado ao produto." },
-    { niche: "saude", titulo: "Creatina em Goma na Rotina", desc: "Como a creatina em goma entra de forma prática no dia a dia." },
-    { niche: "saude", titulo: "Composto Vitamínico e Autocuidado", desc: "Uso do composto vitamínico dentro de uma rotina de autocuidado." },
-    { niche: "saude", titulo: "Depoimento sobre Pré-Treino", desc: "Relato sincero da experiência usando o pré-treino." },
+    { niche: "saude", titulo: "Storytelling com Suplemento", desc: "Um relato pessoal conectando a rotina de autocuidado ao produto.", foto: "fotos/saude-1.jpg" },
+    { niche: "saude", titulo: "Creatina em Goma na Rotina", desc: "Como a creatina em goma entra de forma prática no dia a dia.", foto: "fotos/saude-2.jpg" },
+    { niche: "saude", titulo: "Composto Vitamínico e Autocuidado", desc: "Uso do composto vitamínico dentro de uma rotina de autocuidado.", foto: "fotos/saude-3.jpg" },
+    { niche: "saude", titulo: "Depoimento sobre Pré-Treino", desc: "Relato sincero da experiência usando o pré-treino.", foto: "fotos/saude-4.jpg" },
 
-    { niche: "moda", titulo: "Experiência com Camiseta", desc: "Relato de experiência real vestindo a camiseta no dia a dia." },
-    { niche: "moda", titulo: "Short Saia de Várias Formas", desc: "Diferentes formas de usar a mesma peça em looks distintos." },
-    { niche: "moda", titulo: "Rotina com Pijama", desc: "Pijama inserido em uma rotina noturna contada em vídeo." },
-    { niche: "moda", titulo: "Review Relógio Saint Germain", desc: "Análise sincera do relógio, do design ao uso no dia a dia." },
+    { niche: "moda", titulo: "Experiência com Camiseta", desc: "Relato de experiência real vestindo a camiseta no dia a dia.", foto: "fotos/moda-1.jpg" },
+    { niche: "moda", titulo: "Short Saia de Várias Formas", desc: "Diferentes formas de usar a mesma peça em looks distintos.", foto: "fotos/moda-2.jpg" },
+    { niche: "moda", titulo: "Rotina com Pijama", desc: "Pijama inserido em uma rotina noturna contada em vídeo.", foto: "fotos/moda-3.jpg" },
+    { niche: "moda", titulo: "Review Relógio Saint Germain", desc: "Análise sincera do relógio, do design ao uso no dia a dia.", foto: "fotos/moda-4.jpg" },
 
-    { niche: "promocoes", titulo: "Achadinhos para Casa", desc: "Divulgação de um perfil de achadinhos voltado para casa." },
-    { niche: "promocoes", titulo: "Achadinhos KBeauty", desc: "Divulgação de um perfil especializado em achadinhos de KBeauty." },
-    { niche: "promocoes", titulo: "Achadinhos de Artesanato", desc: "Perfil de achadinhos voltado para quem ama artesanato." },
-    { niche: "promocoes", titulo: "Achadinhos de Moda", desc: "Divulgação de um perfil de achadinhos focado em moda." },
+    { niche: "promocoes", titulo: "Achadinhos para Casa", desc: "Divulgação de um perfil de achadinhos voltado para casa.", foto: "fotos/promocoes-1.jpg" },
+    { niche: "promocoes", titulo: "Achadinhos KBeauty", desc: "Divulgação de um perfil especializado em achadinhos de KBeauty.", foto: "fotos/promocoes-2.jpg" },
+    { niche: "promocoes", titulo: "Achadinhos de Artesanato", desc: "Perfil de achadinhos voltado para quem ama artesanato.", foto: "fotos/promocoes-3.jpg" },
+    { niche: "promocoes", titulo: "Achadinhos de Moda", desc: "Divulgação de um perfil de achadinhos focado em moda.", foto: "fotos/promocoes-4.jpg" },
 
-    { niche: "beleza", titulo: "Transformação com Coloração", desc: "Depoimento mostrando a transformação depois da coloração." },
-    { niche: "beleza", titulo: "Tratamento para Cabelos Marsala", desc: "Aplicação do tratamento e o resultado no cabelo tom marsala." },
-    { niche: "beleza", titulo: "Sérum Yoomi", desc: "Apresentação do sérum e da sensação de uso na pele." },
+    { niche: "beleza", titulo: "Transformação com Coloração", desc: "Depoimento mostrando a transformação depois da coloração.", foto: "fotos/beleza-1.jpg" },
+    { niche: "beleza", titulo: "Tratamento para Cabelos Marsala", desc: "Aplicação do tratamento e o resultado no cabelo tom marsala.", foto: "fotos/beleza-2.jpg" },
+    { niche: "beleza", titulo: "Sérum Yoomi", desc: "Apresentação do sérum e da sensação de uso na pele.", foto: "fotos/beleza-3.jpg" },
 
-    { niche: "tech", titulo: "Unboxing Detalhado de Câmera", desc: "Abertura completa da câmera, item por item da caixa." },
-    { niche: "tech", titulo: "Fone: Problema Vs Solução", desc: "Um problema comum resolvido com o fone em uma cena só." },
-    { niche: "tech", titulo: "Iluminação: Problema Vs Solução", desc: "Comparação mostrando o problema de luz e a solução com o produto." },
-    { niche: "tech", titulo: "Liquidificador Portátil em Uso", desc: "Rotina real usando o liquidificador portátil no dia a dia." },
+    { niche: "tech", titulo: "Unboxing Detalhado de Câmera", desc: "Abertura completa da câmera, item por item da caixa.", foto: "fotos/tech-1.jpg" },
+    { niche: "tech", titulo: "Fone: Problema Vs Solução", desc: "Um problema comum resolvido com o fone em uma cena só.", foto: "fotos/tech-2.jpg" },
+    { niche: "tech", titulo: "Iluminação: Problema Vs Solução", desc: "Comparação mostrando o problema de luz e a solução com o produto.", foto: "fotos/tech-3.jpg" },
+    { niche: "tech", titulo: "Liquidificador Portátil em Uso", desc: "Rotina real usando o liquidificador portátil no dia a dia.", foto: "fotos/tech-4.jpg" },
 
-    { niche: "tiktokshop", titulo: "Estilo Pov Camiseta", desc: "Vídeo em formato POV mostrando a camiseta no dia a dia." },
-    { niche: "tiktokshop", titulo: "Unboxing Hidratante", desc: "Abertura do hidratante com a primeira reação ao produto." },
-    { niche: "tiktokshop", titulo: "Trend Camiseta", desc: "Camiseta aplicada em um formato de trend que viraliza no TikTok." },
-    { niche: "tiktokshop", titulo: "Creme de Tratamento: Aplicação e Resultado", desc: "Aplicação do creme registrada lado a lado com o resultado." },
-    { niche: "tiktokshop", titulo: "Ventilador de Mão: Demonstração", desc: "Apresentação das funções do ventilador portátil em uso real." },
-    { niche: "tiktokshop", titulo: "Modelador de Cachos: Antes e Depois", desc: "Cabelo antes e depois do uso do modelador, em vídeo único." },
+    { niche: "tiktokshop", titulo: "Estilo Pov Camiseta", desc: "Vídeo em formato POV mostrando a camiseta no dia a dia.", foto: "fotos/tiktokshop-1.jpg" },
+    { niche: "tiktokshop", titulo: "Unboxing Hidratante", desc: "Abertura do hidratante com a primeira reação ao produto.", foto: "fotos/tiktokshop-2.jpg" },
+    { niche: "tiktokshop", titulo: "Trend Camiseta", desc: "Camiseta aplicada em um formato de trend que viraliza no TikTok.", foto: "fotos/tiktokshop-3.jpg" },
+    { niche: "tiktokshop", titulo: "Creme de Tratamento: Aplicação e Resultado", desc: "Aplicação do creme registrada lado a lado com o resultado.", foto: "fotos/tiktokshop-4.jpg" },
+    { niche: "tiktokshop", titulo: "Ventilador de Mão: Demonstração", desc: "Apresentação das funções do ventilador portátil em uso real.", foto: "fotos/tiktokshop-5.jpg" },
+    { niche: "tiktokshop", titulo: "Modelador de Cachos: Antes e Depois", desc: "Cabelo antes e depois do uso do modelador, em vídeo único.", foto: "fotos/tiktokshop-6.jpg" },
 
-    { niche: "papelaria", titulo: "Unboxing Máquina de Bottons", desc: "Abertura da máquina mostrando cada peça e o que vem no kit." },
-    { niche: "papelaria", titulo: "Unboxing Encadernadora", desc: "Primeira olhada na encadernadora, testando as funções na prática." },
-    { niche: "papelaria", titulo: "Produção de Bottons na Prática", desc: "Passo a passo de como os bottons são feitos, do zero até o produto pronto." },
-    { niche: "papelaria", titulo: "Chaveiros com Plastificadora", desc: "Demonstração da plastificadora sendo usada para criar chaveiros." },
-    { niche: "papelaria", titulo: "Unboxing Álbum de Adesivos", desc: "Abertura do álbum mostrando o material e o acabamento das folhas." },
-    { niche: "papelaria", titulo: "Chaveiro de Pérolas", desc: "Montagem de um chaveiro de pérolas, do material à peça finalizada." }
+    { niche: "papelaria", titulo: "Unboxing Máquina de Bottons", desc: "Abertura da máquina mostrando cada peça e o que vem no kit.", foto: "fotos/papelaria-1.jpg" },
+    { niche: "papelaria", titulo: "Unboxing Encadernadora", desc: "Primeira olhada na encadernadora, testando as funções na prática.", foto: "fotos/papelaria-2.jpg" },
+    { niche: "papelaria", titulo: "Produção de Bottons na Prática", desc: "Passo a passo de como os bottons são feitos, do zero até o produto pronto.", foto: "fotos/papelaria-3.jpg" },
+    { niche: "papelaria", titulo: "Chaveiros com Plastificadora", desc: "Demonstração da plastificadora sendo usada para criar chaveiros.", foto: "fotos/papelaria-4.jpg" },
+    { niche: "papelaria", titulo: "Unboxing Álbum de Adesivos", desc: "Abertura do álbum mostrando o material e o acabamento das folhas.", foto: "fotos/papelaria-5.jpg" },
+    { niche: "papelaria", titulo: "Chaveiro de Pérolas", desc: "Montagem de um chaveiro de pérolas, do material à peça finalizada.", foto: "fotos/papelaria-6.jpg" }
   ];
   var nicheLabels = {
     todos: "Todos",
@@ -1367,11 +1361,9 @@
       card.setAttribute("aria-label", item.titulo + ", abre o vídeo em nova aba");
 
       var cover = el("div", "feature-cover");
-      cover.setAttribute("role", "img");
-      cover.setAttribute("aria-label", "Capa vertical do vídeo, formato 9 por 16");
       cover.innerHTML =
-        '<span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>' +
-        '<span class="media-caption">capa do vídeo 9:16</span>';
+        '<img src="' + item.foto + '" alt="' + item.titulo + '" loading="lazy">' +
+        '<span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
       card.appendChild(cover);
 
       var info = el("div", "feature-info");
@@ -1413,9 +1405,7 @@
       var card = el("div", "trabalho-card reveal");
       card.dataset.niche = w.niche;
       var capa = el("div", "trabalho-capa");
-      capa.setAttribute("role", "img");
-      capa.setAttribute("aria-label", "Foto do trabalho para " + w.titulo + ", formato 4 por 5");
-      capa.innerHTML = '<span class="media-caption">foto do trabalho 4:5</span>';
+      capa.innerHTML = '<img src="' + w.foto + '" alt="' + w.titulo + '" loading="lazy">';
       card.appendChild(capa);
 
       var body = el("div", "trabalho-body");
