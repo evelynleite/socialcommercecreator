@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Entrar | Evelyn Leite</title>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<div class="tela-login">
+  <div class="cartao-login">
+    <div class="marca-login">Evelyn Leite</div>
+    <div class="subtitulo-login">Entrar no painel</div>
+
+    <div id="faixaErro" class="faixa faixa-erro" style="display:none;" role="alert"></div>
+    <div id="faixaOk" class="faixa faixa-sucesso" style="display:none; margin-bottom:16px;" role="status"></div>
+
+    <form id="formLogin" autocomplete="on">
+      <div class="campo">
+        <label for="campoEmail">E-mail</label>
+        <input type="email" id="campoEmail" name="email" required autocomplete="username">
+      </div>
+      <div class="campo">
+        <label for="campoSenha">Senha</label>
+        <input type="password" id="campoSenha" name="senha" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" id="btnEntrar" style="margin-top:6px;">Entrar</button>
+    </form>
+
+    <div class="link-esqueci">
+      <button type="button" id="btnEsqueci">Esqueci minha senha</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/banco.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>
