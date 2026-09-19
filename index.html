@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evelyn Janaína Ferreira Leite | Portfólio UGC</title>
+<meta name="description" content="Portfólio de UGC de Evelyn Janaína Ferreira Leite. Conteúdo autêntico para marcas de beleza, skincare, moda, fitness e tech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Parisienne&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa: #ff7eb6;
+    --rosa-claro: #ffe8f3;
+    --magenta: #c2185b;
+    --rosa-dourado: #e0a4b4;
+    --branco: #fffaf9;
+    --texto: #4a2436;
+    --texto-suave: #7a4f60;
+    --borda: #f6d3e3;
+    --sombra: 0 20px 45px -20px rgba(194, 24, 91, 0.28);
+    --sombra-suave: 0 10px 30px -18px rgba(194, 24, 91, 0.22);
+    --raio: 28px;
+    --raio-peq: 16px;
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-mao: 'Parisienne', cursive;
+    --fonte-corpo: 'Jost', sans-serif;
+    --fonte-serifa: 'Cormorant Garamond', serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--fonte-corpo);
+    color: var(--texto);
+    background: var(--branco);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--fonte-titulo);
+    margin: 0;
+    color: var(--magenta);
+    font-weight: 600;
+  }
+
+  p { line-height: 1.7; margin: 0; }
+
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  button { font-family: inherit; cursor: pointer; }
+
+  section { position: relative; }
+
+  .container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--magenta);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--magenta);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 0 0 12px 0;
+    z-index: 999;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  .eyebrow {
+    font-family: var(--fonte-mao);
+    color: var(--magenta);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+    margin-bottom: 14px;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+  }
+
+  .section-desc {
+    font-family: var(--fonte-serifa);
+    font-size: 1.15rem;
+    color: var(--texto-suave);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 32px;
+    border-radius: 999px;
+    font-family: var(--fonte-corpo);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    border: 2px solid transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--rosa), var(--magenta));
+    color: #fff;
+    box-shadow: var(--sombra-suave);
+  }
+  .btn-primary:hover, .btn-primary:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+  }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--magenta);
+    color: var(--magenta);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible {
+    background: var(--rosa-claro);
+    transform: translateY(-3px);
+  }
+
+  /* ===== HEADER / NAV ===== */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    background: rgba(255, 250, 249, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .nav-name {
+    font-family: var(--fonte-mao);
+    font-size: 1.7rem;
+    color: var(--magenta);
+  }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.95rem;
+    color: var(--texto);
+    position: relative;
+    padding: 4px 2px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: -2px;
+    height: 2px;
+    background: var(--rosa);
+    transition: right 0.25s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after {
+    right: 0;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--magenta);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 860px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-links {
+      position: fixed;
+      top: 65px;
+      right: 0;
+      height: calc(100vh - 65px);
+      width: min(78vw, 320px);
+      background: var(--branco);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px 32px;
+      gap: 26px;
+      box-shadow: -10px 0 30px -10px rgba(194,24,91,0.2);
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+    .nav-links.is-open { transform: translateX(0); }
+    .nav-links a { font-size: 1.1rem; }
+  }
+
+  /* ===== HERO / CAPA ===== */
+  .hero {
+    padding-top: 150px;
+    background: radial-gradient(circle at 15% 10%, var(--rosa-claro), transparent 55%),
+                radial-gradient(circle at 85% 0%, #ffd7ea, transparent 45%),
+                var(--branco);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 70px;
+  }
+  .hero-eyebrow {
+    font-family: var(--fonte-mao);
+    color: var(--magenta);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+  }
+  .hero-name {
+    font-size: clamp(2.4rem, 5.6vw, 4.1rem);
+    line-height: 1.08;
+    margin: 8px 0 18px;
+  }
+  .hero-tagline {
+    font-family: var(--fonte-serifa);
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    color: var(--texto-suave);
+    max-width: 520px;
+    margin-bottom: 30px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 46px;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 30px;
+  }
+  .hero-stat-num {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+    color: var(--magenta);
+  }
+  .hero-stat-label {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero-photo-wrap {
+    position: relative;
+  }
+  .hero-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--raio);
+    background: linear-gradient(150deg, var(--rosa) 0%, var(--rosa-dourado) 55%, var(--magenta) 100%);
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: flex-end;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 60%);
+  }
+  .media-caption {
+    position: relative;
+    font-family: var(--fonte-corpo);
+    font-size: 0.8rem;
+    color: #fff;
+    background: rgba(74, 36, 54, 0.35);
+    padding: 8px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-photo-deco {
+    position: absolute;
+    bottom: -26px;
+    left: -26px;
+    font-family: var(--fonte-mao);
+    font-size: 2.4rem;
+    color: var(--magenta);
+    opacity: 0.35;
+  }
+
+  .brand-strip {
+    border-top: 1px solid var(--borda);
+    padding: 26px 0;
+    overflow: hidden;
+  }
+  .brand-strip-track {
+    display: flex;
+    gap: 46px;
+    animation: rolarMarcas 34s linear infinite;
+    width: max-content;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-strip-track { animation: none; overflow-x: auto; }
+  }
+  .brand-strip span {
+    font-family: var(--fonte-titulo);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    white-space: nowrap;
+  }
+  @keyframes rolarMarcas {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo-wrap { order: -1; max-width: 320px; margin: 0 auto; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  }
+
+  /* ===== REVEAL ON SCROLL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ===== SOBRE ===== */
+  .sobre {
+    padding: 110px 0;
+    background: var(--rosa-claro);
+  }
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .sobre-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--raio);
+    background: linear-gradient(160deg, var(--rosa-dourado), var(--rosa));
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .sobre-texto p {
+    font-family: var(--fonte-serifa);
+    font-size: 1.2rem;
+    color: var(--texto);
+    margin-bottom: 20px;
+  }
+  .promessas {
+    display: grid;
+    gap: 14px;
+    margin: 28px 0 30px;
+  }
+  .promessas li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: var(--raio-peq);
+    box-shadow: var(--sombra-suave);
+  }
+  .promessas .icone {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--rosa);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+  }
+  .assinatura {
+    font-family: var(--fonte-mao);
+    font-size: 2.1rem;
+    color: var(--magenta);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 860px) {
+    .sobre-grid { grid-template-columns: 1fr; }
+    .sobre-photo { max-width: 320px; margin: 0 auto; }
+  }
+
+  /* ===== DESTAQUES ===== */
+  .destaques {
+    padding: 110px 0;
+  }
+  .destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .feature-card {
+    display: block;
+    border-radius: var(--raio);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .feature-card:hover, .feature-card:focus-visible {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra);
+  }
+  .feature-cover {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    background: linear-gradient(160deg, var(--rosa), var(--magenta));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .feature-cover .media-caption {
+    position: absolute;
+    bottom: 14px; left: 14px;
+  }
+  .play-btn {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .play-btn svg { width: 22px; height: 22px; fill: var(--magenta); margin-left: 3px; }
+  .feature-info { padding: 20px; }
+  .feature-number {
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    color: var(--magenta);
+  }
+  .feature-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--texto-suave);
+    margin-left: 6px;
+  }
+  .feature-info h3 { font-size: 1.15rem; margin: 10px 0 6px; }
+  .feature-info p { font-size: 0.92rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .destaques-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+  }
+
+  /* ===== TRABALHOS ===== */
+  .trabalhos {
+    padding: 110px 0;
+    background: var(--rosa-claro);
+  }
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 44px;
+  }
+  .filtro-btn {
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 2px solid var(--magenta);
+    background: transparent;
+    color: var(--magenta);
+    font-size: 0.9rem;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+  .filtro-btn:hover { transform: translateY(-2px); }
+  .filtro-btn.ativo {
+    background: var(--magenta);
+    color: #fff;
+  }
+  .trabalhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .trabalho-card {
+    background: #fff;
+    border-radius: var(--raio);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: opacity 0.3s ease, transform 0.4s ease;
+  }
+  .trabalho-card.escondido { display: none; }
+  .trabalho-capa {
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(150deg, var(--rosa-dourado), var(--rosa));
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  .trabalho-body { padding: 18px 20px 22px; }
+  .trabalho-niche {
+    display: inline-block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--magenta);
+    background: var(--rosa-claro);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .trabalho-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .trabalho-body p { font-size: 0.88rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .trabalhos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .trabalhos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== SERVICOS ===== */
+  .servicos { padding: 110px 0; }
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .servico-card {
+    background: #fff;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 30px 26px;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .servico-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra);
+  }
+  .servico-num {
+    font-family: var(--fonte-mao);
+    font-size: 2rem;
+    color: var(--rosa);
+  }
+  .servico-card h3 { font-size: 1.15rem; margin: 8px 0 10px; }
+  .servico-card p { font-size: 0.92rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .servicos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== NUMEROS E DEPOIMENTOS ===== */
+  .numeros {
+    padding: 110px 0;
+    background: linear-gradient(180deg, var(--rosa-claro), #fff);
+  }
+  .metricas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 70px;
+  }
+  .metrica-card {
+    text-align: center;
+    background: #fff;
+    border-radius: var(--raio);
+    padding: 30px 16px;
+    box-shadow: var(--sombra-suave);
+  }
+  .metrica-num {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 3.4vw, 2.6rem);
+    color: var(--magenta);
+  }
+  .metrica-label {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    margin-top: 6px;
+  }
+
+  .subsecao-titulo {
+    font-family: var(--fonte-mao);
+    font-size: 1.7rem;
+    color: var(--magenta);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .campanhas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 70px;
+  }
+  .campanha-card {
+    background: #fff;
+    border-radius: var(--raio);
+    padding: 28px 24px;
+    box-shadow: var(--sombra-suave);
+    border-top: 4px solid var(--rosa);
+  }
+  .campanha-card h4 { font-size: 1.05rem; margin-bottom: 6px; }
+  .campanha-resultado {
+    font-family: var(--fonte-titulo);
+    font-size: 1.7rem;
+    color: var(--magenta);
+    margin: 10px 0;
+  }
+  .campanha-card p { font-size: 0.9rem; color: var(--texto-suave); }
+
+  .depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .depoimento-card {
+    background: #fff;
+    border-radius: var(--raio);
+    padding: 28px 26px;
+    box-shadow: var(--sombra-suave);
+    position: relative;
+  }
+  .depoimento-aspas {
+    font-family: var(--fonte-mao);
+    font-size: 2.6rem;
+    color: var(--rosa);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .depoimento-card p.fala {
+    font-family: var(--fonte-serifa);
+    font-size: 1.08rem;
+    color: var(--texto);
+    margin-bottom: 16px;
+  }
+  .depoimento-autor { font-weight: 500; color: var(--magenta); font-size: 0.95rem; }
+  .depoimento-empresa { font-size: 0.82rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); }
+    .campanhas-grid { grid-template-columns: 1fr; }
+    .depoimentos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== CONTATO ===== */
+  .contato {
+    padding: 110px 0;
+    background: var(--rosa-claro);
+  }
+  .contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: flex-start;
+  }
+  .form-field {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .form-field label {
+    font-size: 0.88rem;
+    color: var(--magenta);
+    font-weight: 500;
+  }
+  .form-field input, .form-field textarea {
+    border: 1.5px solid var(--borda);
+    border-radius: var(--raio-peq);
+    padding: 13px 16px;
+    font-family: var(--fonte-corpo);
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--texto);
+    resize: vertical;
+  }
+  .form-field input:focus, .form-field textarea:focus {
+    border-color: var(--rosa);
+  }
+  .form-confirm {
+    display: none;
+    background: #fff;
+    border-radius: var(--raio);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+  }
+  .form-confirm.mostrar { display: block; }
+  .form-confirm .icone-check {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .contato-direto {
+    background: #fff;
+    border-radius: var(--raio);
+    padding: 34px 30px;
+    box-shadow: var(--sombra-suave);
+  }
+  .contato-direto h3 { margin-bottom: 8px; font-size: 1.3rem; }
+  .contato-direto > p { color: var(--texto-suave); margin-bottom: 24px; font-family: var(--fonte-serifa); font-size: 1.05rem; }
+  .contato-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contato-botao {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: var(--raio-peq);
+    border: 1.5px solid var(--borda);
+    background: var(--branco);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .contato-botao:hover, .contato-botao:focus-visible {
+    transform: translateX(4px);
+    border-color: var(--rosa);
+  }
+  .contato-botao .icone-wrap {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--rosa-claro);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contato-botao .icone-wrap svg { width: 20px; height: 20px; fill: var(--magenta); }
+  .contato-botao strong { display: block; font-size: 0.95rem; }
+  .contato-botao span.detalhe { font-size: 0.82rem; color: var(--texto-suave); }
+
+  @media (max-width: 900px) {
+    .contato-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== RODAPE ===== */
+  .rodape {
+    background: var(--magenta);
+    color: #ffe3ef;
+    padding: 50px 0 30px;
+    text-align: center;
+  }
+  .rodape-nome {
+    font-family: var(--fonte-mao);
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .rodape-redes {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .rodape-redes a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: background 0.25s ease;
+  }
+  .rodape-redes a:hover, .rodape-redes a:focus-visible {
+    background: rgba(255,255,255,0.12);
+  }
+  .rodape-redes svg { width: 16px; height: 16px; fill: #ffe3ef; }
+  .rodape small { font-size: 0.8rem; opacity: 0.8; }
+
+  /* ===== CARD DE CAPTURA (MODAL) ===== */
+  .captura-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(74, 36, 54, 0.55);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .captura-overlay.mostrar {
+    display: flex;
+  }
+  .captura-overlay.mostrar.ativa {
+    opacity: 1;
+  }
+  .captura-card {
+    background: var(--branco);
+    border-radius: var(--raio);
+    max-width: 420px;
+    width: 100%;
+    padding: 40px 32px 32px;
+    position: relative;
+    box-shadow: var(--sombra);
+    text-align: center;
+    transform: translateY(18px) scale(0.97);
+    transition: transform 0.35s ease;
+  }
+  .captura-overlay.ativa .captura-card {
+    transform: translateY(0) scale(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .captura-overlay, .captura-card { transition: none; }
+  }
+  .captura-fechar {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: var(--rosa-claro);
+    color: var(--magenta);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .captura-icone {
+    font-family: var(--fonte-mao);
+    font-size: 2.4rem;
+    color: var(--rosa);
+    margin-bottom: 8px;
+  }
+  .captura-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .captura-card > p {
+    font-family: var(--fonte-serifa);
+    color: var(--texto-suave);
+    font-size: 1rem;
+    margin-bottom: 22px;
+  }
+  .captura-form .form-field { text-align: left; }
+  .captura-confirm {
+    display: none;
+  }
+  .captura-confirm.mostrar { display: block; }
+
+  /* ===== UTIL ===== */
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ===================== 1. CAPA (header fixo + hero + faixa de marcas) ===================== -->
+<header class="site-header">
+  <nav class="nav" aria-label="Navegação principal">
+    <span class="nav-name">Evelyn Leite</span>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#destaques">Destaques</a></li>
+      <li><a href="#trabalhos">Trabalhos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#numeros">Números</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+  <section id="capa" class="hero" aria-label="Apresentação">
+    <div class="container hero-grid">
+      <div class="hero-texto">
+        <span class="hero-eyebrow">Portfólio UGC</span>
+        <h1 class="hero-name">Evelyn Janaína<br>Ferreira Leite</h1>
+        <p class="hero-tagline">Eu compro, testo e indico. Crio conteúdo autêntico de UGC para marcas de beleza, skincare, moda, fitness e tech que querem se conectar de verdade com as pessoas.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Falar comigo</a>
+          <a href="#trabalhos" class="btn btn-outline">Ver os trabalhos</a>
+        </div>
+        <div class="hero-stats" id="heroStats"></div>
+      </div>
+      <div class="hero-photo-wrap">
+        <!-- Para trocar pela foto real: substitua a div .hero-photo por uma tag <img src="sua-foto.jpg" alt="Evelyn Leite, UGC creator"> mantendo a classe hero-photo -->
+        <div class="hero-photo" role="img" aria-label="Foto de Evelyn Leite, formato 4 por 5">
+          <span class="media-caption">foto da creator 4:5</span>
+        </div>
+        <span class="hero-photo-deco" aria-hidden="true">✦</span>
+      </div>
+    </div>
+    <div class="brand-strip">
+      <div class="brand-strip-track" id="brandStrip" aria-label="Marcas atendidas"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. SOBRE MIM ===================== -->
+  <section id="sobre" class="sobre">
+    <div class="container sobre-grid">
+      <div class="sobre-photo reveal" role="img" aria-label="Foto de Evelyn Leite, formato 4 por 5">
+        <!-- Para trocar pela foto real: substitua esta div por <img src="sua-foto-sobre.jpg" alt="Evelyn Leite sorrindo"> mantendo a classe sobre-photo -->
+        <span class="media-caption">foto da creator 4:5</span>
+      </div>
+      <div class="sobre-texto reveal">
+        <span class="eyebrow">Sobre mim</span>
+        <h2 class="section-title">Prazer, eu sou a Evelyn</h2>
+        <p>Sou criadora de conteúdo UGC em Sertãozinho e vivo testando produto, contando resultado e mostrando o dia a dia real de quem usa. Gosto de transformar briefing em vídeo que parece conversa entre amigas, não propaganda.</p>
+        <p>Atendo marcas de beleza, skincare, moda, fitness e tech, sempre buscando um conteúdo que converse com quem está do outro lado da tela e que ajude a sua marca a vender mais.</p>
+        <ul class="promessas">
+          <li>
+            <span class="icone" aria-hidden="true">✓</span>
+            <span>Roteiro aprovado por você antes de eu gravar</span>
+          </li>
+          <li>
+            <span class="icone" aria-hidden="true">✓</span>
+            <span>Uma rodada de ajuste inclusa em cada entrega</span>
+          </li>
+          <li>
+            <span class="icone" aria-hidden="true">✓</span>
+            <span>Entrega em até 72 horas úteis</span>
+          </li>
+        </ul>
+        <span class="assinatura">Evelyn Leite</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. CONTEUDOS DE DESTAQUE ===================== -->
+  <section id="destaques" class="destaques">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Portfólio em vídeo</span>
+        <h2 class="section-title">Conteúdos de destaque</h2>
+        <p class="section-desc">Os vídeos que melhor mostram o meu jeito de criar.</p>
+      </div>
+      <!--
+        Para editar os destaques, mexa no array featuredContent no início do script.
+        videoUrl -> link que abre ao clicar no card inteiro (reels, tiktok, youtube etc).
+        cover -> se quiser usar uma imagem real de capa, troque o backgroundImage do objeto
+        ou substitua a div .feature-cover por uma tag <img> dentro da função de render.
+      -->
+      <div class="destaques-grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. TRABALHOS POR NICHO ===================== -->
+  <section id="trabalhos" class="trabalhos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2 class="section-title">Trabalhos por nicho</h2>
+        <p class="section-desc">Filtre por área e veja exemplos do que já criei para cada tipo de marca.</p>
+      </div>
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+      <div class="trabalhos-grid" id="trabalhosGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. COMO EU TE AJUDO ===================== -->
+  <section id="servicos" class="servicos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2 class="section-title">Como eu te ajudo</h2>
+        <p class="section-desc">Um conteúdo pensado para o seu objetivo, do roteiro à entrega final.</p>
+      </div>
+      <div class="servicos-grid" id="servicosGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. NUMEROS E DEPOIMENTOS ===================== -->
+  <section id="numeros" class="numeros">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Resultados</span>
+        <h2 class="section-title">Números e depoimentos</h2>
+        <p class="section-desc">O que os números mostram e o que as marcas dizem sobre trabalhar comigo.</p>
+      </div>
+
+      <div class="metricas-grid" id="metricasGrid"></div>
+
+      <h3 class="subsecao-titulo">Resultados de campanha</h3>
+      <div class="campanhas-grid" id="campanhasGrid"></div>
+
+      <h3 class="subsecao-titulo">O que as marcas dizem</h3>
+      <div class="depoimentos-grid" id="depoimentosGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. BORA CRIAR JUNTOS ===================== -->
+  <section id="contato" class="contato">
+    <div class="container contato-grid">
+      <div class="reveal">
+        <span class="eyebrow">Vamos conversar</span>
+        <h2 class="section-title">Bora criar juntos</h2>
+        <form id="contatoForm" novalidate>
+          <div class="form-field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </form>
+        <div class="form-confirm" id="formConfirm" role="status" aria-live="polite">
+          <div class="icone-check" aria-hidden="true">✓</div>
+          <h3>Mensagem enviada</h3>
+          <p>Obrigada pelo contato! Vou te responder em breve.</p>
+        </div>
+      </div>
+
+      <div class="contato-direto reveal">
+        <h3>Prefere falar direto?</h3>
+        <p>Me chama por aqui que eu respondo rapidinho.</p>
+        <div class="contato-botoes">
+          <a class="contato-botao" href="https://wa.me/5516997420566" target="_blank" rel="noopener noreferrer">
+            <span class="icone-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.44-1.36a9.9 9.9 0 0 0 4.6 1.13h.01c5.46 0 9.9-4.45 9.9-9.9C21.95 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.06.28-3.56-.76-3-1.24-4.92-4.24-5.07-4.44-.15-.2-1.22-1.62-1.22-3.1 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.62.85 2.14.92 2.3.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.76 1.27 1.64 2.06 1.13 1.02 2.08 1.34 2.38 1.49.3.15.47.13.65-.07.18-.2.75-.86.95-1.16.2-.3.4-.25.66-.15.27.1 1.72.82 2.01.97.3.15.5.23.57.36.07.13.07.75-.17 1.43z"/></svg>
+            </span>
+            <span>
+              <strong>WhatsApp</strong>
+              <span class="detalhe">(16) 99742-0566</span>
+            </span>
+          </a>
+          <a class="contato-botao" href="mailto:evelynleiteugc@gmail.com">
+            <span class="icone-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.2.2 7.36 5.6a.7.7 0 0 0 .88 0l7.36-5.6A.5.5 0 0 0 19.5 5h-15a.5.5 0 0 0-.3.7z"/></svg>
+            </span>
+            <span>
+              <strong>E-mail</strong>
+              <span class="detalhe">evelynleiteugc@gmail.com</span>
+            </span>
+          </a>
+          <a class="contato-botao" href="https://instagram.com/evelynleiteee" target="_blank" rel="noopener noreferrer">
+            <span class="icone-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.94.01 9.28 0 12 0zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2A3.2 3.2 0 1 1 12 6.8a3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34z"/></svg>
+            </span>
+            <span>
+              <strong>Instagram</strong>
+              <span class="detalhe">@evelynleiteee</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== 8. RODAPE ===================== -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-nome">Evelyn Leite</div>
+    <div class="rodape-redes">
+      <a href="https://instagram.com/evelynleiteee" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.94.01 9.28 0 12 0z"/></svg>
+        @evelynleiteee
+      </a>
+      <a href="mailto:evelynleiteugc@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13z"/></svg>
+        evelynleiteugc@gmail.com
+      </a>
+      <a href="https://wa.me/5516997420566" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.44-1.36a9.9 9.9 0 0 0 4.6 1.13h.01c5.46 0 9.9-4.45 9.9-9.9C21.95 6.45 17.5 2 12.04 2z"/></svg>
+        (16) 99742-0566
+      </a>
+    </div>
+    <small>&copy; <span id="anoAtual"></span> Evelyn Janaína Ferreira Leite. Todos os direitos reservados.</small>
+  </div>
+</footer>
+
+<!-- ===================== CARD DE CAPTURA ===================== -->
+<div class="captura-overlay" id="capturaOverlay">
+  <div class="captura-card" role="dialog" aria-modal="true" aria-labelledby="capturaTitulo">
+    <button class="captura-fechar" id="capturaFechar" aria-label="Fechar">&times;</button>
+    <span class="captura-icone" aria-hidden="true">✦</span>
+    <h3 id="capturaTitulo">Quer meu mídia kit completo?</h3>
+    <p>Deixe seu nome e e-mail que eu te envio com todos os detalhes.</p>
+    <form class="captura-form" id="capturaForm">
+      <div class="form-field">
+        <label for="capturaNome">Nome</label>
+        <input type="text" id="capturaNome" name="capturaNome" required autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="capturaEmail">E-mail</label>
+        <input type="email" id="capturaEmail" name="capturaEmail" required autocomplete="email">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Quero receber</button>
+    </form>
+    <div class="captura-confirm" id="capturaConfirm" role="status" aria-live="polite">
+      <div class="icone-check" aria-hidden="true" style="margin:0 auto 12px;">✓</div>
+      <p>Prontinho! Em breve o mídia kit chega no seu e-mail.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* =========================================================
+     DADOS - edite aqui sem precisar mexer no HTML
+     ========================================================= */
+
+  // Números curtos exibidos na primeira dobra (capa)
+  var heroStats = [
+    { valor: "00", label: "vídeos entregues" },
+    { valor: "00", label: "marcas atendidas" },
+    { valor: "00", label: "views somadas" }
+  ];
+  // Os valores acima são placeholders. Troque "00" pelos seus números reais assim que tiver.
+
+  // Marcas da faixa da capa (placeholder: Marca 01 a Marca 12)
+  var brands = [
+    "Marca 01", "Marca 02", "Marca 03", "Marca 04", "Marca 05", "Marca 06",
+    "Marca 07", "Marca 08", "Marca 09", "Marca 10", "Marca 11", "Marca 12"
+  ];
+
+  // Conteúdos de destaque (3 vídeos verticais 9:16)
+  // videoUrl: link que abre ao clicar no card inteiro (troque pelo link real do reels/tiktok/youtube)
+  var featuredContent = [
+    {
+      videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI/",
+      numero: "+000K",
+      rotulo: "views no reels",
+      titulo: "Rotina de skincare do dia",
+      contexto: "Vídeo mostrando o produto em uso real, do jeito que eu mesma uso em casa."
+    },
+    {
+      videoUrl: "https://www.tiktok.com/@evelynleiteee/video/SEU_LINK_AQUI",
+      numero: "+000K",
+      rotulo: "visualizações",
+      titulo: "Unboxing e primeira impressão",
+      contexto: "Reação espontânea ao abrir o produto, pensado para gerar conexão."
+    },
+    {
+      videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI2/",
+      numero: "+000K",
+      rotulo: "views no reels",
+      titulo: "Antes e depois de uso",
+      contexto: "Conteúdo de resultado, formato que costuma gerar mais comentários."
+    }
+  ];
+
+  // Trabalhos por nicho (filtro sem recarregar a página)
+  var works = [
+    { niche: "beleza", titulo: "Marca 01", desc: "Vídeo de rotina de maquiagem do dia a dia." },
+    { niche: "beleza", titulo: "Marca 02", desc: "Resenha sincera de produto de cabelo." },
+    { niche: "skincare", titulo: "Marca 03", desc: "Rotina noturna de skincare passo a passo." },
+    { niche: "skincare", titulo: "Marca 04", desc: "Antes e depois de tratamento facial." },
+    { niche: "moda", titulo: "Marca 05", desc: "Look do dia com peças da coleção nova." },
+    { niche: "moda", titulo: "Marca 06", desc: "Prova de roupa e combinações de look." },
+    { niche: "fitness", titulo: "Marca 07", desc: "Treino usando linha de suplementos." },
+    { niche: "fitness", titulo: "Marca 08", desc: "Rotina de roupa fitness no dia de treino." },
+    { niche: "tech", titulo: "Marca 09", desc: "Unboxing e primeiras impressões de gadget." },
+    { niche: "tech", titulo: "Marca 10", desc: "Uso do app no dia a dia, de forma natural." }
+  ];
+  var nicheLabels = {
+    todos: "Todos",
+    beleza: "Beleza",
+    skincare: "Skincare",
+    moda: "Moda",
+    fitness: "Fitness",
+    tech: "Tech"
+  };
+
+  // Como eu te ajudo (6 serviços)
+  var services = [
+    { num: "01", titulo: "Vídeo UGC", desc: "Conteúdo autêntico gravado por mim, pronto para você usar em anúncio ou perfil." },
+    { num: "02", titulo: "Corte para anúncio", desc: "Vídeo editado no formato certo para performar como anúncio pago." },
+    { num: "03", titulo: "Fotos do produto", desc: "Ensaio fotográfico do produto em uso, com luz e composição cuidadas." },
+    { num: "04", titulo: "Unboxing", desc: "Abertura de caixa com reação espontânea, ótimo para gerar desejo." },
+    { num: "05", titulo: "Publicação no meu perfil", desc: "Postagem no meu Instagram apresentando sua marca para o meu público." },
+    { num: "06", titulo: "Pacote mensal", desc: "Conteúdo recorrente todo mês, mantendo sua marca sempre presente." }
+  ];
+
+  // Métricas com contador animado (seção Números e depoimentos)
+  var metrics = [
+    { target: 0, sufixo: "+", label: "Vídeos entregues" },
+    { target: 0, sufixo: "+", label: "Marcas atendidas" },
+    { target: 0, sufixo: "+", label: "Views somadas" },
+    { target: 0, sufixo: "%", label: "Entregas no prazo" }
+  ];
+  // Os valores "target" acima são placeholders (0). Troque pelos números reais assim que tiver.
+
+  // Resultados de campanha (3)
+  var campaignResults = [
+    { marca: "Marca 01", resultado: "00%", desc: "Aumento em engajamento após a publicação do conteúdo." },
+    { marca: "Marca 02", resultado: "00%", desc: "Aumento em conversão nos anúncios usando o vídeo UGC." },
+    { marca: "Marca 03", resultado: "00%", desc: "Redução no custo por resultado ao trocar a criativo do anúncio." }
+  ];
+
+  // Depoimentos (4)
+  var testimonials = [
+    { nome: "Cliente 01", empresa: "Empresa 01", fala: "O conteúdo entregue foi muito além do esperado, super profissional e no prazo combinado." },
+    { nome: "Cliente 02", empresa: "Empresa 02", fala: "A Evelyn entendeu o briefing rapidinho e entregou um vídeo autêntico, exatamente o que a gente precisava." },
+    { nome: "Cliente 03", empresa: "Empresa 03", fala: "Processo tranquilo do início ao fim, com comunicação clara e ótimo resultado no anúncio." },
+    { nome: "Cliente 04", empresa: "Empresa 04", fala: "Recomendo demais o trabalho dela, o conteúdo performou muito bem nas redes da marca." }
+  ];
+
+  /* =========================================================
+     RENDERIZACAO
+     ========================================================= */
+
+  function el(tag, className, html) {
+    var e = document.createElement(tag);
+    if (className) e.className = className;
+    if (html !== undefined) e.innerHTML = html;
+    return e;
+  }
+
+  // Hero stats
+  (function renderHeroStats() {
+    var wrap = document.getElementById("heroStats");
+    heroStats.forEach(function (s) {
+      var item = el("div", "hero-stat");
+      item.appendChild(el("div", "hero-stat-num", s.valor));
+      item.appendChild(el("div", "hero-stat-label", s.label));
+      wrap.appendChild(item);
+    });
+  })();
+
+  // Faixa de marcas (duplicada para efeito de rolagem contínua)
+  (function renderBrands() {
+    var wrap = document.getElementById("brandStrip");
+    var full = brands.concat(brands);
+    full.forEach(function (b) {
+      wrap.appendChild(el("span", null, b));
+    });
+  })();
+
+  // Destaques
+  (function renderFeatured() {
+    var wrap = document.getElementById("featuredGrid");
+    featuredContent.forEach(function (item) {
+      var card = el("a", "feature-card reveal");
+      card.href = item.videoUrl;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+      card.setAttribute("aria-label", item.titulo + ", abre o vídeo em nova aba");
+
+      var cover = el("div", "feature-cover");
+      cover.setAttribute("role", "img");
+      cover.setAttribute("aria-label", "Capa vertical do vídeo, formato 9 por 16");
+      cover.innerHTML =
+        '<span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>' +
+        '<span class="media-caption">capa do vídeo 9:16</span>';
+      card.appendChild(cover);
+
+      var info = el("div", "feature-info");
+      info.innerHTML =
+        '<span class="feature-number">' + item.numero + '</span>' +
+        '<span class="feature-label">' + item.rotulo + '</span>' +
+        '<h3>' + item.titulo + '</h3>' +
+        '<p>' + item.contexto + '</p>';
+      card.appendChild(info);
+
+      wrap.appendChild(card);
+    });
+  })();
+
+  // Trabalhos + filtros
+  (function renderWorks() {
+    var filtrosWrap = document.getElementById("filtros");
+    var gridWrap = document.getElementById("trabalhosGrid");
+    var niches = ["todos"].concat(Object.keys(nicheLabels).filter(function (k) { return k !== "todos"; }));
+
+    niches.forEach(function (n, i) {
+      var btn = el("button", "filtro-btn" + (i === 0 ? " ativo" : ""), nicheLabels[n]);
+      btn.type = "button";
+      btn.dataset.niche = n;
+      btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      btn.addEventListener("click", function () {
+        filtrosWrap.querySelectorAll(".filtro-btn").forEach(function (b) {
+          b.classList.remove("ativo");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("ativo");
+        btn.setAttribute("aria-pressed", "true");
+        filterWorks(n);
+      });
+      filtrosWrap.appendChild(btn);
+    });
+
+    works.forEach(function (w) {
+      var card = el("div", "trabalho-card reveal");
+      card.dataset.niche = w.niche;
+      var capa = el("div", "trabalho-capa");
+      capa.setAttribute("role", "img");
+      capa.setAttribute("aria-label", "Foto do trabalho para " + w.titulo + ", formato 4 por 5");
+      capa.innerHTML = '<span class="media-caption">foto do trabalho 4:5</span>';
+      card.appendChild(capa);
+
+      var body = el("div", "trabalho-body");
+      body.innerHTML =
+        '<span class="trabalho-niche">' + nicheLabels[w.niche] + '</span>' +
+        '<h3>' + w.titulo + '</h3>' +
+        '<p>' + w.desc + '</p>';
+      card.appendChild(body);
+
+      gridWrap.appendChild(card);
+    });
+
+    function filterWorks(niche) {
+      gridWrap.querySelectorAll(".trabalho-card").forEach(function (card) {
+        var show = niche === "todos" || card.dataset.niche === niche;
+        card.classList.toggle("escondido", !show);
+      });
+    }
+  })();
+
+  // Serviços
+  (function renderServices() {
+    var wrap = document.getElementById("servicosGrid");
+    services.forEach(function (s) {
+      var card = el("div", "servico-card reveal");
+      card.innerHTML =
+        '<span class="servico-num">' + s.num + '</span>' +
+        '<h3>' + s.titulo + '</h3>' +
+        '<p>' + s.desc + '</p>';
+      wrap.appendChild(card);
+    });
+  })();
+
+  // Métricas
+  (function renderMetrics() {
+    var wrap = document.getElementById("metricasGrid");
+    metrics.forEach(function (m) {
+      var card = el("div", "metrica-card reveal");
+      card.innerHTML =
+        '<div class="metrica-num" data-target="' + m.target + '" data-sufixo="' + m.sufixo + '">0' + m.sufixo + '</div>' +
+        '<div class="metrica-label">' + m.label + '</div>';
+      wrap.appendChild(card);
+    });
+  })();
+
+  // Campanhas
+  (function renderCampaigns() {
+    var wrap = document.getElementById("campanhasGrid");
+    campaignResults.forEach(function (c) {
+      var card = el("div", "campanha-card reveal");
+      card.innerHTML =
+        '<h4>' + c.marca + '</h4>' +
+        '<div class="campanha-resultado">' + c.resultado + '</div>' +
+        '<p>' + c.desc + '</p>';
+      wrap.appendChild(card);
+    });
+  })();
+
+  // Depoimentos
+  (function renderTestimonials() {
+    var wrap = document.getElementById("depoimentosGrid");
+    testimonials.forEach(function (t) {
+      var card = el("div", "depoimento-card reveal");
+      card.innerHTML =
+        '<span class="depoimento-aspas" aria-hidden="true">&ldquo;</span>' +
+        '<p class="fala">' + t.fala + '</p>' +
+        '<div class="depoimento-autor">' + t.nome + '</div>' +
+        '<div class="depoimento-empresa">' + t.empresa + '</div>';
+      wrap.appendChild(card);
+    });
+  })();
+
+  /* =========================================================
+     MENU MOBILE
+     ========================================================= */
+  (function menuMobile() {
+    var toggle = document.getElementById("navToggle");
+    var links = document.getElementById("navLinks");
+
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    });
+
+    links.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        links.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menu");
+      });
+    });
+  })();
+
+  /* =========================================================
+     REVEAL AO ROLAR
+     ========================================================= */
+  (function revealOnScroll() {
+    var alvos = document.querySelectorAll(".reveal");
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      alvos.forEach(function (a) { a.classList.add("is-visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    alvos.forEach(function (a) { observer.observe(a); });
+  })();
+
+  /* =========================================================
+     CONTADOR ANIMADO
+     ========================================================= */
+  (function counters() {
+    var nums = document.querySelectorAll(".metrica-num");
+
+    function animar(el) {
+      var target = parseInt(el.dataset.target, 10) || 0;
+      var sufixo = el.dataset.sufixo || "";
+      if (prefersReducedMotion) {
+        el.textContent = target + sufixo;
+        return;
+      }
+      var duracao = 1400;
+      var inicio = null;
+      function passo(ts) {
+        if (inicio === null) inicio = ts;
+        var progresso = Math.min((ts - inicio) / duracao, 1);
+        var valorAtual = Math.floor(progresso * target);
+        el.textContent = valorAtual + sufixo;
+        if (progresso < 1) {
+          requestAnimationFrame(passo);
+        } else {
+          el.textContent = target + sufixo;
+        }
+      }
+      requestAnimationFrame(passo);
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      nums.forEach(animar);
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animar(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (n) { obs.observe(n); });
+  })();
+
+  /* =========================================================
+     FORMULARIO DE CONTATO
+     ========================================================= */
+  (function contatoForm() {
+    var form = document.getElementById("contatoForm");
+    var confirm = document.getElementById("formConfirm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      confirm.classList.add("mostrar");
+      form.reset();
+    });
+  })();
+
+  /* =========================================================
+     ANO NO RODAPE
+     ========================================================= */
+  document.getElementById("anoAtual").textContent = new Date().getFullYear();
+
+  /* =========================================================
+     CARD DE CAPTURA (MODAL)
+     ========================================================= */
+  (function capturaModal() {
+    var overlay = document.getElementById("capturaOverlay");
+    var fecharBtn = document.getElementById("capturaFechar");
+    var form = document.getElementById("capturaForm");
+    var confirm = document.getElementById("capturaConfirm");
+    var CHAVE = "ugc_captura_exibida";
+    var focoAnterior = null;
+
+    function abrir() {
+      if (sessionStorage.getItem(CHAVE)) return;
+      overlay.classList.add("mostrar");
+      requestAnimationFrame(function () {
+        overlay.classList.add("ativa");
+      });
+      focoAnterior = document.activeElement;
+      fecharBtn.focus();
+      sessionStorage.setItem(CHAVE, "1");
+      document.addEventListener("keydown", onKeydown);
+    }
+
+    function fechar() {
+      overlay.classList.remove("ativa");
+      setTimeout(function () {
+        overlay.classList.remove("mostrar");
+      }, prefersReducedMotion ? 0 : 350);
+      document.removeEventListener("keydown", onKeydown);
+      if (focoAnterior) focoAnterior.focus();
+    }
+
+    function onKeydown(e) {
+      if (e.key === "Escape") fechar();
+    }
+
+    fecharBtn.addEventListener("click", fechar);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) fechar();
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      confirm.classList.add("mostrar");
+      setTimeout(fechar, 1800);
+    });
+
+    setTimeout(abrir, 7000);
+  })();
+
+})();
+</script>
+</body>
+</html>
