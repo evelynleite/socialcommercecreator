@@ -1167,6 +1167,11 @@
   </div>
 </div>
 
+<!-- Conexão com o banco de dados (Supabase). Se algum dia esses dois arquivos
+     não carregarem, o site continua funcionando com os dados fixos abaixo. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/banco.js"></script>
+
 <script>
 (function () {
   "use strict";
@@ -1262,8 +1267,10 @@
     { niche: "papelaria", titulo: "Unboxing Álbum de Adesivos", desc: "Abertura do álbum mostrando o material e o acabamento das folhas.", foto: "fotos/papelaria-5.jpg" },
     { niche: "papelaria", titulo: "Chaveiro de Pérolas", desc: "Montagem de um chaveiro de pérolas, do material à peça finalizada.", foto: "fotos/papelaria-6.jpg" }
   ];
-  var nicheLabels = {
-    todos: "Todos",
+  // Nomes bonitos para os nichos que eu já conheço. Um nicho novo criado
+  // no admin que não estiver aqui ganha um nome automático (ex: "moda-praia"
+  // vira "Moda Praia"), então nunca fica sem rótulo.
+  var ROTULOS_NICHO_CONHECIDOS = {
     saude: "Saúde e Bem-Estar",
     moda: "Moda",
     promocoes: "Grupo de Promoções",
@@ -1271,16 +1278,6 @@
     tech: "Tech",
     tiktokshop: "Tiktok Shop",
     papelaria: "Papelaria e Artesanato"
-  };
-  // Uma cor da paleta por nicho, para organizar visualmente a galeria
-  var nicheColors = {
-    saude: "var(--magenta)",
-    moda: "var(--rosa)",
-    promocoes: "var(--magenta)",
-    beleza: "var(--rosa)",
-    tech: "var(--magenta)",
-    tiktokshop: "var(--rosa)",
-    papelaria: "var(--magenta)"
   };
 
   // Como eu te ajudo (6 serviços)
@@ -1352,8 +1349,17 @@
   })();
 
   // Destaques
-  (function renderFeatured() {
+  // Se um vídeo não tiver foto de capa (pode acontecer com vídeos
+  // cadastrados no admin), mostra um fundo colorido no lugar, sem quebrar.
+  function marcarCapa(caminho, alt) {
+    if (caminho) return '<img src="' + caminho + '" alt="' + alt + '" loading="lazy">';
+    return '<div style="width:100%;height:100%;min-height:100%;background:linear-gradient(150deg,var(--pessego),var(--rosa));' +
+      'display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;padding:10px;text-align:center;">sem capa ainda</div>';
+  }
+
+  function renderFeatured() {
     var wrap = document.getElementById("featuredGrid");
+    wrap.innerHTML = "";
     featuredContent.forEach(function (item) {
       var card = el("a", "feature-card reveal");
       card.href = item.videoUrl;
@@ -1363,30 +1369,56 @@
 
       var cover = el("div", "feature-cover");
       cover.innerHTML =
-        '<img src="' + item.foto + '" alt="' + item.titulo + '" loading="lazy">' +
+        marcarCapa(item.foto, item.titulo) +
         '<span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
       card.appendChild(cover);
 
       var info = el("div", "feature-info");
       info.innerHTML =
-        '<span class="feature-number">' + item.numero + '</span>' +
-        '<span class="feature-label">' + item.rotulo + '</span>' +
+        '<span class="feature-number">' + (item.numero || "") + '</span>' +
+        (item.rotulo ? '<span class="feature-label">' + item.rotulo + '</span>' : '') +
         '<h3>' + item.titulo + '</h3>' +
-        '<p>' + item.contexto + '</p>';
+        '<p>' + (item.contexto || "") + '</p>';
       card.appendChild(info);
 
       wrap.appendChild(card);
     });
-  })();
+    configurarReveal(wrap.querySelectorAll(".reveal"));
+  }
+  renderFeatured();
 
   // Trabalhos + filtros
-  (function renderWorks() {
+  // Os nichos dos botões de filtro são descobertos automaticamente a partir
+  // dos vídeos existentes, então um nicho novo criado no admin já funciona
+  // sozinho, sem precisar editar este arquivo.
+  function renderWorks() {
     var filtrosWrap = document.getElementById("filtros");
     var gridWrap = document.getElementById("trabalhosGrid");
-    var niches = ["todos"].concat(Object.keys(nicheLabels).filter(function (k) { return k !== "todos"; }));
+    filtrosWrap.innerHTML = "";
+    gridWrap.innerHTML = "";
+
+    var CORES_NICHO = ["var(--magenta)", "var(--rosa)"];
+    var nichosUnicos = [];
+    works.forEach(function (w) {
+      var n = (w.niche || "geral").trim();
+      if (nichosUnicos.indexOf(n) === -1) nichosUnicos.push(n);
+    });
+    nichosUnicos.sort();
+
+    function rotuloNicho(n) {
+      if (ROTULOS_NICHO_CONHECIDOS[n]) return ROTULOS_NICHO_CONHECIDOS[n];
+      return n.replace(/[-_]/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
+    function corDoNicho(n) {
+      var i = nichosUnicos.indexOf(n);
+      return CORES_NICHO[i >= 0 ? i % CORES_NICHO.length : 0];
+    }
+
+    var niches = ["todos"].concat(nichosUnicos);
 
     niches.forEach(function (n, i) {
-      var btn = el("button", "filtro-btn" + (i === 0 ? " ativo" : ""), nicheLabels[n]);
+      var rotulo = n === "todos" ? "Todos" : rotuloNicho(n);
+      var btn = el("button", "filtro-btn" + (i === 0 ? " ativo" : ""), rotulo);
       btn.type = "button";
       btn.dataset.niche = n;
       btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
@@ -1406,19 +1438,21 @@
       var card = el("div", "trabalho-card reveal");
       card.dataset.niche = w.niche;
       var capa = el("div", "trabalho-capa");
-      capa.innerHTML = '<img src="' + w.foto + '" alt="' + w.titulo + '" loading="lazy">';
+      capa.innerHTML = marcarCapa(w.foto, w.titulo);
       card.appendChild(capa);
 
       var body = el("div", "trabalho-body");
-      var corNicho = nicheColors[w.niche] || "var(--magenta)";
+      var corNicho = corDoNicho(w.niche);
       body.innerHTML =
-        '<span class="trabalho-niche" style="background: color-mix(in srgb, ' + corNicho + ' 16%, white); color: ' + corNicho + ';">' + nicheLabels[w.niche] + '</span>' +
+        '<span class="trabalho-niche" style="background: color-mix(in srgb, ' + corNicho + ' 16%, white); color: ' + corNicho + ';">' + rotuloNicho(w.niche) + '</span>' +
         '<h3>' + w.titulo + '</h3>' +
-        '<p>' + w.desc + '</p>';
+        '<p>' + (w.desc || "") + '</p>';
       card.appendChild(body);
 
       gridWrap.appendChild(card);
     });
+
+    configurarReveal(gridWrap.querySelectorAll(".reveal"));
 
     function filterWorks(niche) {
       gridWrap.querySelectorAll(".trabalho-card").forEach(function (card) {
@@ -1426,6 +1460,49 @@
         card.classList.toggle("escondido", !show);
       });
     }
+  }
+  renderWorks();
+
+  // Busca os vídeos no Supabase. Se der qualquer problema (banco fora do ar,
+  // tabela ainda não criada, sem internet), simplesmente devolve "nada", e o
+  // site continua mostrando os dados fixos acima, sem quebrar.
+  async function buscarVideosDoBanco() {
+    try {
+      if (!window.banco) return null;
+      var resultado = await window.banco.from("videos").select("*").eq("visivel", true).order("ordem", { ascending: true });
+      if (resultado.error || !resultado.data || resultado.data.length === 0) return null;
+      return resultado.data;
+    } catch (erro) {
+      return null;
+    }
+  }
+
+  // Se o banco responder com vídeos de verdade, troca o conteúdo fixo pelo
+  // conteúdo do admin, sem precisar publicar o site de novo.
+  (async function atualizarVideosComBanco() {
+    var linhas = await buscarVideosDoBanco();
+    if (!linhas) return;
+
+    var destaquesNovos = [];
+    var trabalhosNovos = [];
+    linhas.forEach(function (linha) {
+      var descricao = linha.marca ? ("Para " + linha.marca) : "";
+      var item = {
+        titulo: linha.titulo || "Vídeo",
+        videoUrl: linha.link || "#",
+        foto: linha.capa || "",
+        niche: (linha.nicho || "geral").toString().trim().toLowerCase(),
+        numero: linha.destaque || "",
+        rotulo: "",
+        contexto: descricao,
+        desc: descricao
+      };
+      if ((linha.formato || "").toString().trim() === "9:16") destaquesNovos.push(item);
+      else trabalhosNovos.push(item);
+    });
+
+    if (destaquesNovos.length) { featuredContent = destaquesNovos.slice(0, 3); renderFeatured(); }
+    if (trabalhosNovos.length) { works = trabalhosNovos; renderWorks(); }
   })();
 
   // Serviços
@@ -1506,8 +1583,9 @@
   /* =========================================================
      REVEAL AO ROLAR
      ========================================================= */
-  (function revealOnScroll() {
-    var alvos = document.querySelectorAll(".reveal");
+  // Função reaproveitada: roda uma vez para o site inteiro, e roda de novo
+  // sozinha para os cards novos que chegarem do banco de dados depois.
+  function configurarReveal(alvos) {
     if (prefersReducedMotion || !("IntersectionObserver" in window)) {
       alvos.forEach(function (a) { a.classList.add("is-visible"); });
       return;
@@ -1521,7 +1599,8 @@
       });
     }, { threshold: 0.15 });
     alvos.forEach(function (a) { observer.observe(a); });
-  })();
+  }
+  configurarReveal(document.querySelectorAll(".reveal"));
 
   /* =========================================================
      CONTADOR ANIMADO
@@ -1575,10 +1654,44 @@
     var confirm = document.getElementById("formConfirm");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      // Salva o contato na sua base de marcas, sempre como Lead.
+      // Se o banco não responder, a pessoa nem percebe: a confirmação
+      // na tela aparece do mesmo jeito.
+      try {
+        if (window.banco) {
+          window.banco.from("marcas").insert({
+            nome: document.getElementById("nome").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            obs: document.getElementById("mensagem").value.trim(),
+            situacao: "Lead"
+          });
+        }
+      } catch (erro) { /* não impede a confirmação pro visitante */ }
+
       form.style.display = "none";
       confirm.classList.add("mostrar");
       form.reset();
     });
+  })();
+
+  /* =========================================================
+     REGISTRO SIMPLES DE VISITA
+     Uma linha na tabela "visitas", sem pedir nada ao visitante
+     e sem usar nenhum serviço de fora.
+     ========================================================= */
+  (function registrarVisita() {
+    if (!window.banco) return;
+    var origem = "direto";
+    try {
+      if (document.referrer) origem = new URL(document.referrer).hostname || "direto";
+    } catch (erro) { origem = "direto"; }
+    try {
+      window.banco.from("visitas").insert({
+        pagina: window.location.pathname || "/",
+        origem: origem
+      });
+    } catch (erro) { /* silencioso: nunca atrapalha o visitante */ }
   })();
 
   /* =========================================================
