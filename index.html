@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evelyn Janaína Ferreira Leite | Portfólio UGC</title>
-<meta name="description" content="Portfólio de UGC de Evelyn Janaína Ferreira Leite. Conteúdo autêntico para marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria.">
+<title>Evelyn Leite | Portfólio UGC</title>
+<meta name="description" content="Portfólio de UGC de Evelyn Leite. Conteúdo autêntico para marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Parisienne&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,600&family=Parisienne&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
     /* Paleta oficial da Evelyn. Cores usadas de forma estratégica:
@@ -259,18 +259,58 @@
 
   /* ===== HERO / CAPA ===== */
   .hero {
-    padding-top: 150px;
-    background: radial-gradient(circle at 15% 10%, var(--creme), transparent 55%),
-                radial-gradient(circle at 85% 0%, var(--rosa-claro), transparent 45%),
+    padding-top: 65px;
+    background: radial-gradient(circle at 15% 60%, var(--creme), transparent 55%),
+                radial-gradient(circle at 85% 50%, var(--rosa-claro), transparent 45%),
                 var(--branco);
   }
+  /* Capa em tela cheia, no mesmo enquadramento do Canva:
+     papel rosa claro, foto grande puxada para a direita,
+     "Evelyn" à esquerda atrás do cabelo e "Leite" à direita na frente */
+  .hero-banner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    max-height: calc(100vh - 65px);
+    min-height: 380px;
+    background: #fcd0ea url("fotos/capa-papel.jpg") center / cover;
+    background-blend-mode: multiply;
+  }
+  .hero-recorte {
+    position: absolute;
+    top: -20%;
+    left: 62%;
+    transform: translateX(-50%);
+    height: 165%;
+    width: auto;
+    max-width: none;
+    z-index: 2;
+  }
+  .hero-nome-tras,
+  .hero-nome-frente {
+    position: absolute;
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    font-size: clamp(4.2rem, 14.5vw, 19rem);
+    line-height: 1;
+    color: var(--magenta);
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+  .hero-nome-tras { top: 9%; left: 4%; z-index: 1; }
+  .hero-nome-frente { top: 33%; right: 4%; z-index: 3; }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 56px;
-    align-items: center;
-    padding-bottom: 70px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding-top: 48px;
+    padding-bottom: 60px;
   }
+  .hero-grid .hero-tagline { margin-left: auto; margin-right: auto; max-width: 640px; }
+  .hero-grid .hero-actions { justify-content: center; }
+  .hero-grid .hero-stats { justify-content: center; }
   .hero-eyebrow {
     font-family: var(--fonte-mao);
     color: var(--magenta);
@@ -360,8 +400,10 @@
   }
 
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-photo-wrap { order: -1; max-width: 320px; margin: 0 auto; }
+    .hero-banner { aspect-ratio: auto; height: 62vh; max-height: 560px; }
+    .hero-recorte { top: auto; bottom: 0; left: 50%; height: 84%; }
+    .hero-nome-tras { top: 3%; left: 50%; transform: translateX(-50%); }
+    .hero-nome-frente { top: auto; bottom: 12%; }
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
   }
 
@@ -444,8 +486,8 @@
   }
   .destaques-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
   }
   .feature-card {
     display: block;
@@ -504,8 +546,62 @@
   .feature-info h3 { font-size: 1.15rem; margin: 10px 0 6px; }
   .feature-info p { font-size: 0.92rem; color: var(--texto-suave); }
 
+  .destaques-grid .feature-info { padding: 16px; }
+  .destaques-grid .feature-info h3 { font-size: 1rem; margin: 6px 0 0; }
+  .destaques-grid .feature-info p:empty { display: none; }
+  @media (max-width: 1000px) {
+    .destaques-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .destaques-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .destaques-grid .play-btn { width: 46px; height: 46px; }
+  }
+
+  .sobre-frases { font-family: var(--fonte-serifa); font-style: italic; font-size: 1.1rem; }
+  .tags-pessoais { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; padding: 0; }
+  .tags-pessoais li {
+    background: var(--rosa-claro); color: var(--magenta);
+    border-radius: 999px; padding: 6px 14px; font-size: 0.85rem; font-weight: 500;
+  }
+
+  /* ===== INVESTIMENTOS ===== */
+  .investimentos { padding: 110px 0; background: linear-gradient(180deg, var(--rosa-claro), var(--branco)); }
+  .precos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .preco-card {
+    background: #fff; border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 28px 26px; box-shadow: var(--sombra-suave);
+  }
+  .preco-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .preco-nota { display: block; font-size: 0.85rem; color: var(--texto-suave); }
+  .preco-lista { list-style: none; margin: 14px 0 0; padding: 0; }
+  .preco-lista li {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0; border-bottom: 1px dashed var(--borda); font-size: 0.95rem;
+  }
+  .preco-lista li:last-child { border-bottom: 0; }
+  .preco-lista strong { color: var(--magenta); font-weight: 600; white-space: nowrap; }
+  .pacotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 64px; align-items: center; }
+  .pacote-card {
+    position: relative; text-align: center; background: #fff; border: 1px solid var(--borda);
+    border-radius: var(--raio); padding: 36px 26px 30px; box-shadow: var(--sombra-suave);
+  }
+  .pacote-destaque {
+    background: linear-gradient(160deg, var(--magenta), var(--rosa)); color: #fff; border: 0;
+    box-shadow: var(--sombra); padding-top: 44px; padding-bottom: 40px;
+  }
+  .pacote-selo {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--texto); color: #fff; font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 999px; white-space: nowrap;
+  }
+  .pacote-nome { font-family: var(--fonte-mao); font-size: 2.2rem; color: var(--magenta); }
+  .pacote-destaque .pacote-nome { color: #fff; }
+  .pacote-itens { list-style: none; margin: 10px 0 0; padding: 0; font-size: 0.92rem; line-height: 1.9; }
+  .pacote-preco { font-family: var(--fonte-titulo); font-size: 2.1rem; margin: 16px 0 2px; }
+  .pacote-economia { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-suave); }
+  .pacote-destaque .pacote-economia { color: rgba(255,255,255,0.9); }
   @media (max-width: 900px) {
-    .destaques-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .precos-grid, .pacotes-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
   }
 
   /* ===== TRABALHOS ===== */
@@ -934,7 +1030,7 @@
       <li><a href="#destaques">Destaques</a></li>
       <li><a href="#trabalhos">Trabalhos</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#numeros">Números</a></li>
+      <li><a href="#investimentos">Investimentos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
@@ -942,21 +1038,23 @@
 
 <main id="conteudo">
   <section id="capa" class="hero" aria-label="Apresentação">
+    <!-- Capa em tela cheia, como no Canva: "Evelyn" atrás da foto e "Leite" na frente.
+         Para trocar a foto, substitua fotos/hero-capa.png (foto recortada, fundo transparente). -->
+    <div class="hero-banner">
+      <span class="hero-nome-tras" aria-hidden="true">Evelyn</span>
+      <img class="hero-recorte" src="fotos/hero-capa.png" alt="Evelyn Leite, UGC creator">
+      <span class="hero-nome-frente" aria-hidden="true">Leite</span>
+    </div>
     <div class="container hero-grid">
       <div class="hero-texto">
         <span class="hero-eyebrow">Portfólio UGC</span>
-        <h1 class="hero-name">Evelyn Janaína<br>Ferreira Leite</h1>
-        <p class="hero-tagline">Eu compro, testo e indico. Crio conteúdo autêntico de UGC para marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria que querem se conectar de verdade com as pessoas.</p>
+        <h1 class="visually-hidden">Evelyn Leite</h1>
+        <p class="hero-tagline">Eu compro, testo e indico. Crio conteúdo autêntico sobre saúde, autocuidado e estilo de vida para mulheres 30+ e 40+, para marcas que querem se conectar de verdade com as pessoas.</p>
         <div class="hero-actions">
           <a href="#contato" class="btn btn-primary">Falar comigo</a>
           <a href="#trabalhos" class="btn btn-outline">Ver os trabalhos</a>
         </div>
         <div class="hero-stats" id="heroStats"></div>
-      </div>
-      <div class="hero-photo-wrap">
-        <!-- Foto real da Evelyn. Para trocar, substitua o arquivo fotos/hero.jpg mantendo o mesmo nome -->
-        <img class="hero-photo" src="fotos/hero.jpg" alt="Evelyn Leite, UGC creator">
-        <span class="hero-photo-deco" aria-hidden="true">✦</span>
       </div>
     </div>
     <div class="brand-strip">
@@ -972,20 +1070,25 @@
       <div class="sobre-texto reveal">
         <span class="eyebrow">Sobre mim</span>
         <h2 class="section-title">Prazer, eu sou a Evelyn</h2>
-        <p>Sou criadora de conteúdo UGC em Sertãozinho e vivo testando produto, contando resultado e mostrando o dia a dia real de quem usa. Gosto de transformar briefing em vídeo que parece conversa entre amigas, não propaganda.</p>
-        <p>Atendo marcas de beleza, moda, saúde e bem-estar, tech, tiktok shop e papelaria e artesanato, sempre buscando um conteúdo que converse com quem está do outro lado da tela e que ajude a sua marca a vender mais.</p>
+        <p>Aos 39 anos, depois de quase um ano com sintomas sem explicação, ganhei quase 20 quilos, abandonei os treinos e cheguei a perder o sentido de viver. O diagnóstico de menopausa precoce e, depois, de lipedema me mostrou que não era drama: havia uma causa biológica por trás de tudo.</p>
+        <p>Hoje, aos 42, já eliminei 12 quilos, voltei a treinar, recuperei minha autoestima e me sinto mais funcional do que em muito tempo, graças à reposição hormonal e ao acompanhamento de uma ginecologista integrativa.</p>
+        <p>Crio conteúdo autêntico sobre saúde, autocuidado e estilo de vida para mulheres 30+ e 40+, com uma identidade que me diferencia: sou apaixonada por K-pop, K-dramas e artesanato. É isso que levo para as marcas: a conexão real com mulheres que buscam saúde e inspiração, sem abrir mão das suas paixões e da sua identidade.</p>
+        <p class="sobre-frases">"Nem parece que você tem 42 anos." "Você tá ótima." "Você me inspira." são frases que ouço com frequência de quem acompanha minha jornada.</p>
+        <ul class="tags-pessoais" aria-label="Um pouco de mim">
+          <li>Artesã</li><li>Army</li><li>Dorameira</li><li>Tentando ser fitness</li>
+        </ul>
         <ul class="promessas">
           <li>
             <span class="icone" style="background: var(--magenta);" aria-hidden="true">✓</span>
-            <span>Roteiro aprovado por você antes de eu gravar</span>
+            <span>Roteiro enviado para a sua aprovação antes da gravação</span>
           </li>
           <li>
             <span class="icone" style="background: var(--rosa);" aria-hidden="true">✓</span>
-            <span>Uma rodada de ajuste inclusa em cada entrega</span>
+            <span>Gravação e edição em alta qualidade</span>
           </li>
           <li>
             <span class="icone" style="background: var(--rosa);" aria-hidden="true">✓</span>
-            <span>Entrega em até 72 horas úteis</span>
+            <span>Entrega em até 5 dias úteis após a aprovação do roteiro</span>
           </li>
         </ul>
         <span class="assinatura">Evelyn Leite</span>
@@ -997,9 +1100,9 @@
   <section id="destaques" class="destaques">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Portfólio em vídeo</span>
-        <h2 class="section-title">Conteúdos de destaque</h2>
-        <p class="section-desc">Os vídeos que melhor mostram o meu jeito de criar.</p>
+        <span class="eyebrow">Resultados reais</span>
+        <h2 class="section-title">Brilharam no TikTok Shop</h2>
+        <p class="section-desc">Vídeos que eu criei para marcas e que performaram no TikTok Shop.</p>
       </div>
       <!--
         Para editar os destaques, mexa no array featuredContent no início do script.
@@ -1028,16 +1131,31 @@
   <section id="servicos" class="servicos">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Serviços</span>
-        <h2 class="section-title">Como eu te ajudo</h2>
-        <p class="section-desc">Um conteúdo pensado para o seu objetivo, do roteiro à entrega final.</p>
+        <span class="eyebrow">Processo criativo</span>
+        <h2 class="section-title">Como funciona</h2>
+        <p class="section-desc">Do entendimento da sua marca até a entrega final, tudo alinhado com você.</p>
       </div>
       <div class="servicos-grid" id="servicosGrid"></div>
     </div>
   </section>
 
-  <!-- ===================== 6. NUMEROS E DEPOIMENTOS ===================== -->
-  <section id="numeros" class="numeros">
+  <!-- ===================== 6. INVESTIMENTOS ===================== -->
+  <section id="investimentos" class="investimentos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Investimentos</span>
+        <h2 class="section-title">Valores</h2>
+        <p class="section-desc">Escolha contratar uma vez, com recorrência ou um dos pacotes prontos.</p>
+      </div>
+      <div class="precos-grid" id="precosGrid"></div>
+      <div class="pacotes-grid" id="pacotesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== NUMEROS E DEPOIMENTOS (escondida) =====================
+       Escondida enquanto ainda não há métricas, resultados de campanha e depoimentos.
+       Para mostrar de novo: apague o atributo hidden abaixo e volte o link "Números" no menu. -->
+  <section id="numeros" class="numeros" hidden>
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Resultados</span>
@@ -1138,7 +1256,7 @@
         (16) 99742-0566
       </a>
     </div>
-    <small>&copy; <span id="anoAtual"></span> Evelyn Janaína Ferreira Leite. Todos os direitos reservados.</small>
+    <small>&copy; <span id="anoAtual"></span> Evelyn Leite. Todos os direitos reservados.</small>
   </div>
 </footer>
 
@@ -1184,46 +1302,28 @@
 
   // Números curtos exibidos na primeira dobra (capa)
   // cor: uma cor da paleta por número, para dar ritmo visual sem pesar
+  // +494K = soma das views dos vídeos do TikTok Shop (234,3K + 55,9K + 132,9K + 71,5K)
   var heroStats = [
-    { valor: "00", label: "vídeos entregues", cor: "var(--magenta)" },
-    { valor: "00", label: "marcas atendidas", cor: "var(--rosa)" },
-    { valor: "00", label: "views somadas", cor: "var(--magenta)" }
+    { valor: "+494K", label: "views no TikTok Shop", cor: "var(--magenta)" },
+    { valor: "+14K", label: "em vendas", cor: "var(--rosa)" },
+    { valor: "7", label: "nichos de conteúdo", cor: "var(--magenta)" }
   ];
-  // Os valores acima são placeholders. Troque "00" pelos seus números reais assim que tiver.
 
   // Marcas da faixa da capa (marcas reais retiradas do portfólio atual)
   var brands = [
     "Meccolour", "No1ne", "Grudado", "Army in Luv", "Lavitan", "Black",
-    "Pool", "Saint Germain", "Bulluniformes Personalizados", "Jiditech", "Nozne Store", "Tendência Brasil"
+    "Pool", "Saint Germain", "Bulluniformes Personalizados", "Jiditech", "Nozne Store", "Tendência Brasil", "Mais Fácil BR"
   ];
 
-  // Conteúdos de destaque (3 vídeos verticais 9:16)
-  // videoUrl: link que abre ao clicar no card inteiro (troque pelo link real do reels/tiktok/youtube)
+  // Brilharam no TikTok Shop (números do portfólio no Canva)
+  // videoUrl: hoje abre o seu perfil do TikTok. Se quiser, troque pelo link de cada vídeo.
+  var TIKTOK = "https://www.tiktok.com/@evelynleiteee";
   var featuredContent = [
-    {
-      videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI/",
-      numero: "+000K",
-      rotulo: "views no reels",
-      titulo: "Storytelling com Suplemento",
-      contexto: "Um relato pessoal de autocuidado conectado ao produto, no meu jeito de contar.",
-      foto: "fotos/saude-1.jpg"
-    },
-    {
-      videoUrl: "https://www.tiktok.com/@evelynleiteee/video/SEU_LINK_AQUI",
-      numero: "+000K",
-      rotulo: "visualizações",
-      titulo: "Transformação com Coloração",
-      contexto: "Depoimento real mostrando a transformação depois da coloração.",
-      foto: "fotos/beleza-1.jpg"
-    },
-    {
-      videoUrl: "https://www.instagram.com/reel/SEU_LINK_AQUI2/",
-      numero: "+000K",
-      rotulo: "views no reels",
-      titulo: "Review Relógio Saint Germain",
-      contexto: "Análise sincera do relógio, do design ao uso no dia a dia.",
-      foto: "fotos/moda-4.jpg"
-    }
+    { videoUrl: TIKTOK, numero: "234,3K", rotulo: "views", titulo: "Bulluniformes Personalizados", contexto: "", foto: "fotos/tiktokshop-bulluniformes.jpg" },
+    { videoUrl: TIKTOK, numero: "132,9K", rotulo: "views", titulo: "Nozne Store", contexto: "", foto: "fotos/tiktokshop-nozne.jpg" },
+    { videoUrl: TIKTOK, numero: "71,5K", rotulo: "views", titulo: "Tendência Brasil", contexto: "", foto: "fotos/tiktokshop-tendencia.jpg" },
+    { videoUrl: TIKTOK, numero: "55,9K", rotulo: "views", titulo: "Jiditech", contexto: "", foto: "fotos/tiktokshop-jiditech.jpg" },
+    { videoUrl: TIKTOK, numero: "+14K", rotulo: "em vendas", titulo: "Mais Fácil BR", contexto: "", foto: "fotos/tiktokshop-maisfacil.jpg" }
   ];
 
   // Trabalhos por nicho (filtro sem recarregar a página)
@@ -1280,15 +1380,29 @@
     papelaria: "Papelaria e Artesanato"
   };
 
-  // Como eu te ajudo (6 serviços)
-  // cor: alterna entre os acentos da paleta a cada card
+  // Processo criativo (3 passos, do portfólio no Canva)
   var services = [
-    { num: "01", titulo: "Vídeo UGC", desc: "Conteúdo autêntico gravado por mim, pronto para você usar em anúncio ou perfil.", cor: "var(--magenta)" },
-    { num: "02", titulo: "Corte para anúncio", desc: "Vídeo editado no formato certo para performar como anúncio pago.", cor: "var(--rosa)" },
-    { num: "03", titulo: "Fotos do produto", desc: "Ensaio fotográfico do produto em uso, com luz e composição cuidadas.", cor: "var(--magenta)" },
-    { num: "04", titulo: "Unboxing", desc: "Abertura de caixa com reação espontânea, ótimo para gerar desejo.", cor: "var(--rosa)" },
-    { num: "05", titulo: "Publicação no meu perfil", desc: "Postagem no meu Instagram apresentando sua marca para o meu público.", cor: "var(--magenta)" },
-    { num: "06", titulo: "Pacote mensal", desc: "Conteúdo recorrente todo mês, mantendo sua marca sempre presente.", cor: "var(--rosa)" }
+    { num: "01", titulo: "Análise de marca", desc: "Analiso a sua marca e conversamos para eu entender os objetivos e criar conteúdos assertivos.", cor: "var(--magenta)" },
+    { num: "02", titulo: "Roteiro", desc: "A partir do briefing e dos objetivos, elaboro o roteiro e envio para a sua aprovação, para que esteja tudo alinhado.", cor: "var(--rosa)" },
+    { num: "03", titulo: "Criação e entrega", desc: "Gravação e edição em alta qualidade, com entrega em até 5 dias úteis após a aprovação do roteiro. Pacotes personalizados: prazo a combinar.", cor: "var(--magenta)" }
+  ];
+
+  // Investimentos (valores do portfólio no Canva)
+  var precos = [
+    { titulo: "Contrate 1 vez", nota: "", itens: [
+      ["1 vídeo", "R$ 357"], ["2 vídeos", "R$ 600"], ["3 vídeos", "R$ 800"], ["4 vídeos", "R$ 960"],
+      ["8 vídeos", "R$ 1.920"], ["10 vídeos", "R$ 2.400"], ["12 vídeos", "R$ 2.850"] ] },
+    { titulo: "Com recorrência", nota: "Mínimo de 3 meses", itens: [
+      ["4 vídeos", "R$ 880"], ["6 vídeos", "R$ 1.320"], ["8 vídeos", "R$ 1.680"],
+      ["10 vídeos", "R$ 2.000"], ["15 vídeos", "R$ 3.000"], ["20 vídeos", "R$ 4.000"] ] },
+    { titulo: "Adicionais", nota: "", itens: [
+      ["Teste A/B", "R$ 70"], ["3 fotos", "R$ 100"], ["+90 dias de ads", "R$ 100"], ["Collab", "R$ 100"],
+      ["3 stories", "R$ 230"], ["3 stories UGC", "R$ 180"], ["Repost no TikTok", "R$ 100"] ] }
+  ];
+  var pacotes = [
+    { nome: "UGC 1", itens: ["1 vídeo", "Teste A/B", "Roteiro", "Gravação", "Edição", "3 meses de ads"], preco: "R$ 427", economia: "", destaque: false },
+    { nome: "UGC 2", itens: ["3 vídeos", "Roteiro", "Gravação", "Edição", "6 meses de ads"], preco: "R$ 750", economia: "Economize R$ 498", destaque: true },
+    { nome: "UGC 3", itens: ["4 vídeos", "3 fotos", "Roteiro", "Gravação", "Edição", "6 meses de ads"], preco: "R$ 1.440", economia: "Economize R$ 1.257", destaque: false }
   ];
 
   // Métricas com contador animado (seção Números e depoimentos)
@@ -1483,7 +1597,6 @@
     var linhas = await buscarVideosDoBanco();
     if (!linhas) return;
 
-    var destaquesNovos = [];
     var trabalhosNovos = [];
     linhas.forEach(function (linha) {
       var descricao = linha.marca ? ("Para " + linha.marca) : "";
@@ -1497,11 +1610,9 @@
         contexto: descricao,
         desc: descricao
       };
-      if ((linha.formato || "").toString().trim() === "9:16") destaquesNovos.push(item);
-      else trabalhosNovos.push(item);
+      trabalhosNovos.push(item);
     });
 
-    if (destaquesNovos.length) { featuredContent = destaquesNovos.slice(0, 3); renderFeatured(); }
     if (trabalhosNovos.length) { works = trabalhosNovos; renderWorks(); }
   })();
 
@@ -1515,6 +1626,31 @@
         '<h3>' + s.titulo + '</h3>' +
         '<p>' + s.desc + '</p>';
       wrap.appendChild(card);
+    });
+  })();
+
+  // Investimentos
+  (function renderPrecos() {
+    var wrap = document.getElementById("precosGrid");
+    precos.forEach(function (bloco) {
+      var card = el("div", "preco-card reveal");
+      var linhas = bloco.itens.map(function (it) {
+        return '<li><span>' + it[0] + '</span><strong>' + it[1] + '</strong></li>';
+      }).join("");
+      card.innerHTML = '<h3>' + bloco.titulo + '</h3>' +
+        (bloco.nota ? '<span class="preco-nota">' + bloco.nota + '</span>' : '') +
+        '<ul class="preco-lista">' + linhas + '</ul>';
+      wrap.appendChild(card);
+    });
+    var wrapP = document.getElementById("pacotesGrid");
+    pacotes.forEach(function (pc) {
+      var card = el("div", "pacote-card reveal" + (pc.destaque ? " pacote-destaque" : ""));
+      card.innerHTML = (pc.destaque ? '<span class="pacote-selo">Mais vendido</span>' : '') +
+        '<span class="pacote-nome">' + pc.nome + '</span>' +
+        '<ul class="pacote-itens">' + pc.itens.map(function (t) { return '<li>' + t + '</li>'; }).join("") + '</ul>' +
+        '<div class="pacote-preco">' + pc.preco + '</div>' +
+        (pc.economia ? '<span class="pacote-economia">' + pc.economia + '</span>' : '');
+      wrapP.appendChild(card);
     });
   })();
 
